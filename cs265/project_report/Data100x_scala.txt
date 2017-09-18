@@ -1,0 +1,66 @@
+novusnyclk61 ~/my_proj2/compare/94af253c $ perf stat -e cycles,instructions,cache-misses,branch-misses ./server.sh SimpleServer mode100x /home/NOVUS/rsha/my_proj2/compare/94af253c/project_tests/ 0
+creating Tree with a FANOUT of = 65
+2016-04-29T15:05:17.727-0400: 5.000: [GC 5.000: [ParNew: 272640K->34048K(306688K), 0.1156600 secs] 272640K->40153K(12548864K), 0.1157510 secs] [Times: user=0.45 sys=0.00, real=0.11 secs]
+2016-04-29T15:05:18.241-0400: 5.514: [GC 5.514: [ParNew: 306688K->34048K(306688K), 0.1392870 secs] 312793K->77452K(12548864K), 0.1393540 secs] [Times: user=0.53 sys=0.00, real=0.14 secs]
+2016-04-29T15:05:18.711-0400: 5.985: [GC 5.985: [ParNew: 306688K->34048K(306688K), 0.1217950 secs] 350092K->106795K(12548864K), 0.1218660 secs] [Times: user=0.46 sys=0.01, real=0.12 secs]
+time taken to build Tree with total nodes = 10000 is 2248ms
+Shallow Size of BTree is 48
+Deep Size of BTree is 587232
+shutting down server
+Could not listen on port: 9999.
+Heap
+ par new generation   total 306688K, used 260764K [0x00000004e0000000, 0x00000004f4cc0000, 0x00000004f4cc0000)
+  eden space 272640K,  83% used [0x00000004e0000000, 0x00000004edd673f8, 0x00000004f0a40000)
+  from space 34048K, 100% used [0x00000004f2b80000, 0x00000004f4cc0000, 0x00000004f4cc0000)
+  to   space 34048K,   0% used [0x00000004f0a40000, 0x00000004f0a40000, 0x00000004f2b80000)
+ concurrent mark-sweep generation total 12242176K, used 72747K [0x00000004f4cc0000, 0x00000007e0000000, 0x00000007e0000000)
+ concurrent-mark-sweep perm gen total 21248K, used 7911K [0x00000007e0000000, 0x00000007e14c0000, 0x0000000800000000)
+
+ Performance counter stats for './server.sh SimpleServer mode100x /home/NOVUS/rsha/my_proj2/compare/94af253c/project_tests/ 0':
+
+    28,128,126,009 cycles                    #    0.000 GHz
+    27,043,487,866 instructions              #    0.96  insns per cycle
+       204,974,081 cache-misses
+       101,786,401 branch-misses
+
+      13.638342167 seconds time elapsed
+
+
+novusnyclk61 ~/my_proj2/compare/94af253c $ perf stat -e cycles,instructions,cache-misses,branch-misses ./server.sh SimpleServer mode100x /home/NOVUS/rsha/my_proj2/compare/94af253c/project_tests/ 0
+creating Tree with a FANOUT of = 65
+2016-04-29T15:05:46.349-0400: 4.927: [GC 4.927: [ParNew: 272640K->34048K(306688K), 0.1108140 secs] 272640K->40156K(12548864K), 0.1108900 secs] [Times: user=0.43 sys=0.00, real=0.11 secs]
+2016-04-29T15:05:46.852-0400: 5.429: [GC 5.429: [ParNew: 306688K->34048K(306688K), 0.1397100 secs] 312796K->77489K(12548864K), 0.1397800 secs] [Times: user=0.53 sys=0.00, real=0.14 secs]
+2016-04-29T15:05:47.318-0400: 5.896: [GC 5.896: [ParNew: 306688K->34048K(306688K), 0.1217370 secs] 350129K->106986K(12548864K), 0.1218080 secs] [Times: user=0.47 sys=0.00, real=0.12 secs]
+time taken to build Tree with total nodes = 10000 is 2226ms
+Shallow Size of BTree is 48
+Deep Size of BTree is 587232
+Calling rangeSearch for geq = 146 and le = 1014
+Returning total 10 in time 2.300222396850586 microsecond
+Calling rangeSearch for geq = 2182 and le = 6259
+Returning total 50 in time 13.900018692016602 microsecond
+Calling rangeSearch for geq = 2182 and le = 7669
+Returning total 65 in time 9.700017929077148 microsecond
+Calling rangeSearch for geq = 2182 and le = 8200
+Returning total 75 in time 18.70001792907715 microsecond
+Calling rangeSearch for geq = 1012 and le = 10000
+Returning total 125 in time 9.100019454956055 microsecond
+Calling rangeSearch for geq = 100 and le = 100000
+Returning total 1337 in time 0.4000587463378906 microsecond
+shutting down server
+Could not listen on port: 9999.
+Heap
+ par new generation   total 306688K, used 260765K [0x00000004e0000000, 0x00000004f4cc0000, 0x00000004f4cc0000)
+  eden space 272640K,  83% used [0x00000004e0000000, 0x00000004edd675d8, 0x00000004f0a40000)
+  from space 34048K, 100% used [0x00000004f2b80000, 0x00000004f4cc0000, 0x00000004f4cc0000)
+  to   space 34048K,   0% used [0x00000004f0a40000, 0x00000004f0a40000, 0x00000004f2b80000)
+ concurrent mark-sweep generation total 12242176K, used 72938K [0x00000004f4cc0000, 0x00000007e0000000, 0x00000007e0000000)
+ concurrent-mark-sweep perm gen total 21248K, used 8007K [0x00000007e0000000, 0x00000007e14c0000, 0x0000000800000000)
+
+ Performance counter stats for './server.sh SimpleServer mode100x /home/NOVUS/rsha/my_proj2/compare/94af253c/project_tests/ 0':
+
+    28,105,583,639 cycles                    #    0.000 GHz
+    27,246,771,609 instructions              #    0.97  insns per cycle
+       205,923,011 cache-misses
+       103,985,470 branch-misses
+
+      54.231010769 seconds time elapsed

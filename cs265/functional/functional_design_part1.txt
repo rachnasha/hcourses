@@ -1,0 +1,197 @@
+Some background on OO and Object design patterns
+
+
+
+
+GOFs design patterns - 3 broad classification - Structural , Creational, behavioural
+
+Functional style -- has none of these - everything in functional world is replaced by a function. For example
+
+(1) Singleton pattern is implemented as a Object with a apply.
+(2) Command pattern (do, undo a command) - is Function apply, unapply
+
+pretty much everything is modelled as a function.
+
+So this brings us to the Core pricipals :
+
+Functions,
+Types (Types are not classes)
+Composition
+
+
+Functions:
+
+   -- First class values
+   -- they are just like any other data type
+   -- not attached to any class
+   -- functions are things that transform things.
+   -- exmaples of functions - defined just like variables.
+     -- val x = 5
+     -- val f = (x:Int, y:Int) => (x+y)
+
+   -- HOFs - functions that take functions as input and/or return functions
+          -- map, fold, examples of higher order
+          -- add some more examples
+
+   -- Total functions : most helpful
+        -- Totality ( in terms of set/functions) :
+
+        Total function : for all A ( Domain) there exist B ( codomain)
+
+      -- divide by 0 ( show example )
+      -- constrain the type --> nonZeroInteger (OR)
+      -- return an Option ( Parial Function - only defined for some part of the domain)
+
+
+      -- Use static types : make it compile time check.
+
+
+   Functions as Parameters
+        -- Decouple behaviour from data
+
+
+  Functions as interfaces:
+     - AN INTERFACe of one thing is just a function
+
+     Continuation -- Maps
+
+
+
+Composition:
+
+  -- mathematics law of composition - f: a->b, g : b -> c then there exists h = a -> c
+  -- Exercise for readers - Prove that function composition is assocaitive (fog)oh = fo(goh)
+      -- Hint : Just show that LHS == RHS by applying functions.
+
+  -- way to build bigger functions from smaller functions :
+     -- functions all the way down.
+ -- give an example from scala - from code base:
+
+
+
+Types:
+  -- Not just classes
+  -- more like sets (and relationships between them is defined by functions)
+  -- type is label given to set of inputs / outputs of a function
+
+-- Type variance ( in scala)
+   -- allows to define relationship between class hierarcies and polymorphic types
+   -- type variance in Scala is at the --- definition site variance - which means you define
+     variance when the class/trait is declared
+     -- so for example
+        Apple is a subtype of Fruit
+   3 types:
+    -- Covariant - B <: A  List[Apple] subclass of List[Furit] , varies with the type it contains.
+    -- Invariant  - not related
+    -- Contravariant -  super type , if A <: B , then Contravariant will be
+
+
+
+  -- Types can have
+      -- members
+      -- methods
+      -- Types
+          -- Abstract Type members ( no e)
+          -- Generic Types parameters.
+
+-- types can be composed
+
+(1) algebraic types
+     --- start with primitive  and create new ones by glueing them together
+      - Two ways :(a) by multiplyig them - product type -- person * date = types birthday
+                  (b) by adding them - union/sum type  --
+
+(2) Abstract Types Members:
+      Abstraction - there are two types of abstraction - These apply orthogonally to Methods, fields, and type
+        (a) parameterization
+        (b) abstract members
+
+      -- these apply to fields, methods and types ( show examples )
+        -- abstract fields/values
+        -- pass actual methods/abstract over them
+        -- pass types as parameters of abstract over them
+
+Type can be a member of another Type
+
+trait Base {
+  type T
+
+  def method: T
+}
+
+class Implementation extends Base {
+  type T = Int
+
+  def method: T = 42
+}
+
+
+
+
+Two types of Extensibility/Polymorphism
+ -- Subtype Polymorphism -- if your operations/methods are fixed - but number of structures/types of these are unbounded
+
+ -- Adhoc Polymorphism -- add new method to existing (fixed/unchanging) number of types.
+
+
+
+
+What next :
+
+Functors,
+
+Applicative,
+
+Monads,
+
+Monoids
+
+  - nullable values --> Options
+  - is a Functor
+
+   -- chaining continuations -- Bind is an adapater block
+    -- monadic bind
+   -- Futures - onComplete , onFailure
+   -- Validation -- Success/Failure -- Disjunctive
+
+
+Monoids : Closure, Associativity, Identity
+  - Aggragate data and operations
+   -- start a bunch of things -
+     -- combine two things get the same thing
+     -- associative
+     -- identity
+  -- Also work with Functions : Functions that have same inputs and out types are called Endomorphism ( Monoids)
+
+
+Errata:
+
+class MyIntType extends ANewType{
+
+  type aTypeMember = Int
+
+  val member: aTypeMember = 42
+
+  def func1(x: aTypeMember): aTypeMember = member * x
+
+
+}
+
+
+class MyStringType extends ANewType{
+
+  type aTypeMember = String
+
+  val member: aTypeMember = "NovusScalaSchool"
+
+  def func1(x: aTypeMember): aTypeMember = member ++ x
+
+
+}
+
+
+
+val x = new MyIntType
+x.func1("rachna")
+
+

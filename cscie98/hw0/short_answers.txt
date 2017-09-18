@@ -1,0 +1,52 @@
+Short Answer Questions
+1. Describe in your own words the roles of Java’s Error, Exception and RuntimeException classes.
+
+(A) Java Error - Error represent abnormal failure conditions that an application cannot handle or recover from. 
+One example is IOError.
+
+(B) Java Exception - These are checked exceptions and so are checked at compile time. These need to be handled by a try-catch or a throws clause.
+One example would be FileNotFoundException.
+
+(C) Runtime Exception - These are Unchecked exceptions, so while they dont need a try-catch or a throws clause, they can be thrown by the JVM during runtime. 
+One example would be DivideByZeroException.
+
+
+
+2. What is the difference between a static and an instance method in Java?
+
+(A) Static method - Are class level methods, and do not have access to any "state" other than Static ( i.e. class level ) variable. 
+
+(B) Instance Method - Apply to an instance of an object and have a notion of object state.
+
+
+
+3. Sort the following elements of the memory hierarchy by access time, with the fastest element first:
+
+• RAM.
+• Processor Registers.
+• L1 Cache.
+• L2 Cache.
+• SSD Disk Drive.
+• Magnetic Disk Drive.
+• Tape Storage.
+
+
+4. Using Unix man pages or other similar resources, summarize in your own words the behavior of the following
+Unix system calls:
+(a) malloc - allocates memory of the certain size and returns a pointer to it
+(b) free - deallocates the memory pointed by the given ptr 
+(c) memcpy - copies the given number of bytes from original memory location m1 to destination m2
+(d) memset - writes given length of bytes of value to a given pointer
+
+5. Describe the semantics of Java’s final keyword both for methods and for fields.
+
+Final Methods - Cannot be overriden by subclasses, and used to control behavior that must not be changed.
+
+Final Fields - Are like constants, once the value is assigned, it cannot be changed.
+
+6. Discuss the difference between method overloading and method overriding.
+
+Overloading - Methods of a class that share the name but different number/type of parameters.
+
+Overriding - when a subclass provides it own implementation of method defined in superclass, that method is considered to be overridden by the subclass. PLease note
+overriden methods need to have the same method signature  ( name and parameter types ) and return type.

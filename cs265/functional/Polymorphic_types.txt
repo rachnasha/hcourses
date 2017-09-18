@@ -1,0 +1,16 @@
+Polymorphic types:
+
+- they are like containers that can hold values of different types
+- this allows us to understand the properties of the container without any knowledge of the value it may hold
+
+
+Test - Existential quantifucations - there exists
+Types - Universal quantifications
+
+Types give universal guarantees for all values of that types.
+Types defined valid operations on terms
+
+
+Types can range
+(1) annoying - types definitions that are redundant and require lot of typing
+(2) Useful types are those - that save errors, useful program documentation, safety net for safe refactoring

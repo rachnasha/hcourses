@@ -1,0 +1,16 @@
+Undirected Graphs
+
+Determine which among the four graphs pictured below are isomorphic. If
+two of these graphs are isomorphic, describe an isomorphism between them.
+If they are not, give a property that is preserved under isomorphism such
+that one graph has the property, but the other does not. a, b, d
+
+
+
+Prove that isomorphism of graphs is an equivalence relation.
+
+Reflexive  : Every graph is isomorphic to itself
+
+Symmetric : if Graph A is isomorphic to B , then B is isomorphic to A, as they both have same number of edges and vertices.
+
+Transitive: if graph A and B are isomorphic and graph B and C are isomorphic, then A and C are isomorphic

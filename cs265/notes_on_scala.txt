@@ -1,0 +1,103 @@
+Notes:
+
+Types Variables:
+
+>>> head :: [a] -> a
+
+a =  is a type variable - which means it can be any type.
+
+allows us to write very general functions - if they dont use any specifci behaviour of types.
+
+- Functions that have type variables are called "Polymorphic functions"
+
+TypeClasses:
+
+- Typeclasses are somewhat like interface that define some behaviour
+
+- If a type is part of a type class - it means it supports and implements the behaviour a typeclass describes
+
+- they are not classes of OO paradigm
+
+- they may be similar to interface - just better.
+
+
+Static Type:
+
+- the type of every fucntions is known at compile time.
+
+
+Type :
+
+What is ?
+- type is a label for an expression
+- It defines the category of things that expression fits
+
+
+Type Constructors:
+
+- Take type as parameters to produce a new type.
+data Maybe a = Nothing | Just a : in this example - "a" is a type paramter
+- there is no type just Maybe - its not a type - its a type constructor.
+- In order to use Option - we need all its type parameters filled in .
+- List is another example that takes type parameter. - List type take a parameter to produce a concrete type.
+
+- Type parameter are useful - because we can make different data types depending on the type we want contained in our data type.
+
+- Using type parameters is very useful - but only when the data type can work regardless of the type of value it holds inside it.
+
+- If data type act as some kind of box - its good to use type parameters.
+
+- we usually use type parameters- when type contained in the data type value constructor isnt really that important for the type to work.
+   - for example : a list of stuff is a list of stuff - doesnt matter what that "type" of stuff is
+   - another good example is a Map[k,v] - allows us to have mapping from any type to any type
+
+ Classes ( OO) Vs TypeClasses (Functional)
+ ==========================================
+
+ classes in OO - are a blueprint from which we create objects - that contain state and can do some actions.
+
+ typeclasses -> are more like interfaces. We dont make data from type classes.
+             -> first make our data type and then we think about what it can "act like"
+             -> for example : if it can act like something that can be equated - its Eq typeclas
+             -> if it can act like something that can be ordered - we make it an instance of Ord typeclass.
+
+
+Type synonyms:
+
+Typeclasses :102 -
+
+recap (101) :
+
+- Typeclasses are like ineterfaces.
+- they define some behaviour - liek equality, ordering
+- types that can behave in that way are made instances of that typeclass.
+- behaviour of type class is achieved by defining functions or type declarations that we then implement.
+- in summary - when we say that a type is an instance of a typeclass - we mean that we can use the functions that the typeclass defines with that type
+
+
+
+Functor :
+
+typeclass has a type variable which is not a concrete type - rather a type constructor that
+- take a type and creates a data type.
+
+- Functor needs  types constructor that takes "ONE" type and not a concrete type :
+
+instance Functor Maybe where
+fmap f( Just x) = Just (f x)
+fmap f ( Nothing ) = Nothing
+
+
+More Type Constructors:
+
+- Type constructors - take other types as paramter to produce concrete types.
+- Types are lables that values carry - so we can reason about them
+- BUT Types have their own labels - called "Kinds"
+- "kind" is more or less a "type of a type"
+- a "*" means that that type is a concrete type - values can only have concrete type
+- a "* -> *" means that the type constructor takes one concrete type and returns a concrete type.
+- Functors need types that take one type parameter - while Either takes 2. - So Functor wants types that have kind "* -> *"
+- types that can be used in Functor - have to be of kind "*->*"
+
+
+

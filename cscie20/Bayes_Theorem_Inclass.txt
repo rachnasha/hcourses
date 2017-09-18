@@ -1,0 +1,53 @@
+(a) 
+1/2 -- given the first is already known - there are equally likely chances of M or F. Hence the probability of other being Female is 1/2
+
+
+(b) Atleast  one is Female :
+{(F,F), (M,F), (F,M)} =  S
+{F,F}  = E
+
+(1/2 *1/2)/ (3/4) = 1/3
+
+(c) Signifiance  is one is given to be Female .
+
+
+
+
+
+4B 4G
+
+(a) Sample Space = 8 c 4       { BBBB, BBBG, BBGG, BGGG, GGGG, GGGB, GGBB, GBBB}
+P4 = 4c4
+Pr(P4) = 4c4/8c4= 1/70
+
+(b) SS = 8c4
+P3 = (4c3.4c1)/8c4
+
+
+(c) SS = 8c4
+     Event =  (4c2 * 4c2)
+P(P2) = (4c2 * 4c2)/(8c4)
+
+(d) 1/70 + 1/70 + 16/70 + 16/70 + 36/70
+
+(e)  
+1B
+Event - 4c3 - choose girls
+Sample - (7c3) 
+P(1B | B) = 4c3/7c3
+
+2B 
+
+Event - 3c1 * 4c2 - choose 1 Boy * choose 2 g
+Sample - 7c3
+P(2B | B ) = (3c1 * 4c2) / (7c3)
+
+3B
+Event - 3c2 * 4c1-  choose 1 g
+Sample - 7c3
+P(3B | B ) = (3c2 * 4c1) / (7c3)
+
+4B
+Event - 3c3- 
+Sample - 7c3
+P(3B | B ) = (3c3 )/ (7c3)

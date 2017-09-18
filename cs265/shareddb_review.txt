@@ -1,0 +1,71 @@
+what is the problem
+
+1. Query at a time model optimizes performance in a best-effort way
+2. This model is not optimal for systems that need to process hundreds of concurrent queries
+meeting the SLA's for atleast 99% of the queries.
+
+why is it important
+ Many modern applications need response time guarantees in high load situations.
+
+why is it hard:
+
+
+why existing solutions do not work
+- query-at-time cannot meet the performance requirement of high and dynamic
+workload as it can suffer from resource contenton and interference.
+- Most of the systems start executing executing queries as soon as it arrives, which limits the
+opportunities to share computations across queries
+
+
+what is the core intuition for the solution
+
+- Main idea of SharedDB - batches queries and updates in order to share computation
+across these queries and updates.
+- Adopts many ideas developed in the context of multi query optimization and data streaming.
+
+Architecture of SharedDB :
+
+1. Data-Query Model
+2. Global Query Plan
+3. Batched Query Execution
+4. Shared Operators.
+
+Data-Query Model:
+1. model to represent the intermediate query results.
+2. additional column to keep track of the identifier of the queries. This query_id
+uniquely identifies the active queries.
+3. Column implemented as a set-valued attribute - this allows operator to be applied to the
+tuple only once - across multiple queries
+4. main memory footprint also reduced significantly.
+5. set-valued attribute - has been implemented as a list data structure.
+
+Global Query Plan:
+1. Compiles the whole workload of the system into a single query plan
+2. Global query plan may serve many concurrent SQL queries and updates
+3. Query execution
+    (a) while one batch of queries are executing , newly arriving queries are batched.
+    (b) Once the current batch is finished, queues are emptied to form the next batch
+    (c) queueing is fine grained per input relation and query operator.
+
+4. SharedDB works well when query types are known in advance
+
+Shared Join Plans:
+
+1. key innovation - is that way it processes joins, sorts and group-bys
+2. Step 1 - Logical Query optimation - queries are parsed and compiled individually -thereby pushing down predicates.
+3. Step 2 -  The  individual query plans are merged into a single global plan - which results in one big join instead of 3 small joins
+4. Step 3 -  join results routing carried out by using a grouping operator.
+5. query_id made a part of join predicate
+6. support multiple join types - hash join, sorted join, cache-aware join
+7. same idea applies to sorts and groupby
+
+Shared Operators:
+
+1. Designed to evaluate a number of queries concurrently by processing them in cycles
+2. Every cycle excutes set of active queries or subqueries
+3. Any additional queries that arrive after the cycle has started is queued
+
+
+possible next steps
+
+1. cost-based optimizer - to create global query in one pass

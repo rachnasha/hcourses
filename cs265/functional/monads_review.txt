@@ -1,0 +1,42 @@
+What it is ?
+
+1. Monad is a way structure computation
+(a) in terms of values and
+(b) sequences of computation using those values.
+
+- Allows programmers to build computation using sequential building blocks - These sequential building blocks can themselves be made of sequences of computation
+
+-determines how these combined computation form a new computation.
+
+- the programmer does not have to code combinations manually each time
+
+- In summary - Monads can be thought of as a strategy for combining computation into more complex computation.
+
+- there are as many different types of monads as there are strategies for combining them.
+
+
+What problem are they solving ?
+
+- they are useful tools for structuring functional programs
+- they have 3 important properties
+
+    (a) Modularity -  they make it possible to do computation by composing simpler computations - this separates the concerns of combining the compuatations from the actual computation task.
+
+    (b) Flexibility - Functional programs written using monads are more adaptive - as the computation strategy is in one single place - instead of being present in differnt places.
+
+    (C) Isolation - They can be used to create imperative-style computation structures which are isolated from the program itself. this is useful for performing side effecting operations such as I/O etc in a functional program.
+
+ Examples of Monads :
+
+ (a) Option - models a type that may be null
+ (b) List - models a type that may return 0,1 or more values
+ (c) Try
+ (d) Validation
+
+ Definition of a Monad:
+
+A monad
+
+ - has a function - that can build values of that type : unit ()
+ - and a function that can combine values of that type -> with computations
+ that produce values of that type -> to finally produce new computation for value of that type -> flatMap : (m a -> (a -> m b) -> m b)

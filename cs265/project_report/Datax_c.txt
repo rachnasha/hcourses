@@ -1,0 +1,56 @@
+novusnyclk61 (cs265) ~/my_proj2/rachnashas-cs165-2015-base/src $ perf stat -e cycles,instructions,cache-misses,branch-misses ./server
+result of intit db : 1
+Table thread recieved signal of database created
+In load db to load file ../project_tests/datax.csv, database: db1
+Total lines :100
+Starting INdexing
+Time taken to Index in microseconds:           4.000000000
+Time taken to load file : datax.csv , time : 0.000000000
+clusterd is :0
+Size of alloc 828
+Size of total 844
+==== size of Btree :844 bytes
+Starting shutdown ........
+sync_db :db1
+Finished shutdown .....
+
+ Performance counter stats for './server':
+
+         5,384,668 cycles                    #    0.000 GHz
+         2,902,312 instructions              #    0.54  insns per cycle
+            12,978 cache-misses
+            34,668 branch-misses
+
+      78.794006567 seconds time elapsed
+
+novusnyclk61 (cs265) ~/my_proj2/rachnashas-cs165-2015-base/src $ perf stat -e cycles,instructions,cache-misses,branch-misses ./server
+result of intit db : 1
+Table thread recieved signal of database created
+In load db to load file ../project_tests/datax.csv, database: db1
+Total lines :100
+Starting INdexing
+Time taken to Index in microseconds:           4.000000000
+Time taken to load file : datax.csv , time : 0.000000000
+clusterd is :0
+Size of alloc 828
+Size of total 844
+==== size of Btree :844 bytes
+searching bTree on colName :col4
+Time taken in BTree search length: 1, time in microseconds:          21.000000000   - 0.01%
+Time taken in BTree search length: 6, time in microseconds:          21.000000000   - 0.06%
+Time taken in BTree search length: 15, time in microseconds:          23.000000000  - 0.15%
+Time taken in BTree search length: 37, time in microseconds:          22.000000000  - 0.37%
+Time taken in BTree search length: 56, time in microseconds:          29.000000000  - 0.56%
+Time taken in BTree search length: 68, time in microseconds:          32.000000000  - 0.68%
+Starting shutdown ........
+sync_db :db1
+Finished shutdown .....
+
+ Performance counter stats for './server':
+
+        12,524,876 cycles                    #    0.000 GHz
+         5,947,626 instructions              #    0.47  insns per cycle
+            31,398 cache-misses
+            87,490 branch-misses
+
+      64.361207840 seconds time elapsed

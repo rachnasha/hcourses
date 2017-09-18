@@ -1,0 +1,122 @@
+Ted Neward : Thinking in Scala
+
+Scala - hybrid of object + functional world
+
+
+Concepts:
+
+
+(1) functional -
+for all  x there exists y - no side effects
+(2) no imperative statements :
+x != x+1
+
+
+functional concepts:
+
+Functiona as first calass values
+Strongly-typed, type-inference
+immutable values
+recursion
+expresssions-not-statements :
+ expresssion - everything yields a value -
+
+tuples (NO method just data ), lists ( over array)
+
+
+pattern-matching
+currying, partial-applciation of functions
+laziness/deferred execution
+----> boolean short circuit evaluation.
+
+Sequences/Stream :
+
+ResultSet - is a tuple - bundle of data that is just ordered.
+
+Traditional Java:
+     -> read the whole thing in memory
+
+ With Sequence/Stream:
+  ---> dont need everything in memory.
+
+
+
+
+Anything learning new :
+helps to start from something you know and move to unknown.
+
+Patterns:
+
+GOF:
+Creational :
+Abstract Factory, Factory Method, Portotype, SIngletone.
+
+Structural:
+Adapter, Bridge, Facade ..
+
+Behavioral:
+Chain of responsibility,
+Strategy ,
+Template
+
+
+Old Patterns:
+
+(1) Singleton :
+
+- Ensure class has only one instance and provide a global point of access
+- scala implemetation - object keyword.
+(First class citizen)
+
+(2) Command:
+- Encapsulated a request as object, letting you parametrize clients with diff requests
+    ---> command - do and undo
+- Scala : functions; apply(); unapply()
+
+(3) Strategy:
+ - Define a fanily of alogo and encapsulate
+
+ -- scala - functions
+
+ (4) Composite :
+ - compose objects into tree structures
+  -- scala implementation : case class
+
+
+  New Patterns:
+
+-> Decompositional Recursion:
+Problem :
+do something to a list of items
+-- scala : FoldLeft, FoldRight, map
+
+--> Iterator IOC:
+ -- create what you want to do as a function and hand it to the collection
+
+--> pipelines:
+
+-- ExpandoMetaObject:
+
+
+
+
+Paradigm shift : thinking in functional way : new paradigm
+
+Object Oriented:
+Nouns - first class citizen
+Verbs - only go with class
+
+langauges alos need a way to pass behaviour/verbs: - functional languages.
+
+Simula - SmallTalk - C++
+
+
+OO makes code understandbale by
+encapsulating moving parts
+
+FP makes code understandable by
+mimizing moving parts
+
+ - Micheal Feathers, author of "Working with legacy code"
+
+

@@ -1,0 +1,25 @@
+what is the problem:
+- Open source software stack for parallel data analysis
+- covers a variety of use cases, such as data warehousing, information extraction and integration, data cleansing, graph analysis, and statistical analysis applications
+- Big data eco system consists of
+  (1) Distributed File System
+  (2) Parallel data analysis platform
+  (3) Data Programming languages
+  (4) Specific tools for specific data domains.
+
+
+why is it hard:
+
+
+why existing solutions do not work:
+
+
+what is the core intuition for the solution:
+
+
+
+Architecture:
+
+
+Solution step by step
+

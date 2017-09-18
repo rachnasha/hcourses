@@ -1,0 +1,33 @@
+Evaluation
+
+- The main goal of building an optimized BTree is to minimize search time - both for range queries and specific value queries.
+
+- Tuning parameters will focus on
+    (a) Type of BTree - for a set of inputs -
+
+        (i) Text input data :
+            if inputs data is "String" type - will the search for the data be more efficient
+            if the tree was represented as Int tree ( build from some hashcode representation of
+            String input ) or should it a String tree ?
+
+        (ii) Time series input data
+                - search for one col for input dates
+                - search multiple columns for input dates
+
+        (iii) Input data is a List type i.e comma separated list of values ?
+
+    (b) minimising Random Access ( and fit tree in L1/2- cache ) - which will be impacted by the fanout
+
+- We will benchmark the performance of Optimal tree
+
+(1) Comparing performance of optimized tree vs unoptimized tree for
+    (a)int input
+    (b)String input
+    (c)time series input
+
+(2) Comparing performance of range queries for varying data size - optimized tree vs unoptimized tree . As data size increase we expect the optimized tree to be a smooth/ slightly curved line , while the performance of an unoptimized tree should increase lineary (?) with data size. The data for this set up will be integer inputs of varying sizes.
+
+(3) Comparing the time to come up with an optimized option with varying data sizes - This will help to evaluate the performance of GeneticAlgorithm
+
+(4) Compare the performance of an optimized tree implemented in Scala with the same optimized tree implemented in C - Although the results of this experiment does not directly relate to main goal - i.e the Tree Type ( String, Int ) , that can most efficient search data , but it will help
+to evaluate the overhead of high level languages , and if that cost can be amortized by the time saved in implemented in a high level language.

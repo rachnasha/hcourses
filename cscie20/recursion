@@ -1,0 +1,92 @@
+Recursive definitions. Recursively define the sets of natural numbers N,
+Fibonnaci numbers, and integers Z.
+
+
+Natural numbers - base  0
+constructor = +1
+Pn = Pn-1+ 1
+
+
+Fib Num 
+Base case (0)
+Base case(1)
+
+n-1 + n-2
+
+Z =
+
+Base case (0) = 0
+Base case (1) = 1
+Base case (-1) = -1
+
+Constructors = base case(1) + 1, base case (-1) -1
+
+Pn  =  (Pn-1 +1) if n > 0
+Pn = (Pn-1 -1) if n<0
+
+
+
+2. Associativity of Concatenation. Prove that for all strings r, s, t ∈ A∗
+(r · s) · t = r · (s · t)
+
+Base Case(r) is empty
+(E.s).t = E.(s.t)
+s.t = s.t
+(r.s).t=r.(s.t)
+
+c belongs to A, u belongs to A*
+Constructor:
+Let us assume (r.s).u = r.(s.u)
+
+Let t := c.u = t
+
+(r.s).t=r.(s.(c.u))
+ = r.((s.c).u) -- by assumption
+= (r.(s.c)).u -- by assumption
+=(r.s).(c.u) -- by assumption
+=(r.s).t
+
+Base case: ' ' . ' ' = ' ' . ' '
+
+Constructor case: ' ' . r = r
+
+
+
+
+
+Define binary relations R 0 and R 1 on the set of squares of an n × n chess-
+board:
+
+R 0 (x, y) <==> a knight can go from x to y in an even number of moves
+R 1 (x, y) <==> a knight can go from x to y in an odd number of moves
+
+(a) Show R i (x, y) → R i (y, x) for i = 0, 1, i.e., R i is symmetric.
+
+Knight's moves are reversible. So if it can go from x to y in n moves, it can go from y to x in n moves. (just reverse the same path).
+
+(b) Show (R 0 (x, y) ∧ R 0 (y, z)) → R 0 (x, z), i.e., R 0 is transitive.
+
+Solution 1: An even number plus an even number is an even number. So if the knight can move from x to y in an even number of moves and from y to z in an even number of moves, it can move from x to z (via y), in an even number of moves.
+
+Solution 2: Note, each time a knight moves, it switches the color of the square it's on. 
+
+So R 0 (x,y) iff x and y have the same color.
+And R 1 (x,y) iff x and y have different colors.
+
+Thus R 0 (x,y) ^ R 0 (y,z) means x, y, z all have the same color, easy peasy
+
+(c) Show R i (x, y) → ¬R 1−i (x, y) for i = 0, 1, i.e., R 0 and R 1 are disjoint.
+
+If x and y have the same color, then it's not the case that they have different colors.
+R 0 (x,y) --> ~ R 1 (x,y). (Analogue: R 1 (x,y) --> ~R 0 (x,y)).
+
+(d) Show (R 1 (x, y) ∧ R 1 (y, z)) → ¬R 1 (x, z), i.e., R 1 is antitransitive.
+
+If x and y have different colors and y and z have different colors then clearly x and z have the same color, thus ~R 1 (x,z).
+
+(e) Show that if n = 8, R 0 (x, y) ∨ R 1 (x, y) holds, but that the same is not
+true if n = 3.
+
+Before (e), we knew that at most one of R 0 and R 1 will hold between two spaces.
+
+The famous "Knight's Tour" problem shows that a knight starting on any square on an 8x8 board can reach any other square, thus R 0 or R 1 holds between any two squares on an 8x8 board. But on a 3x3, the center square is unreachable from any other square.

@@ -1,0 +1,17 @@
+Running applications on JVM is inherently safe from a standpoint that a single user/program cannot crash the host machine or hijack all its resources. This is because the JVM encapsulates the application/process from the host operating system, and only  allows accesss to the resources - such as the Memory/Heap - in the Virtual Machine. This makes it enticing for adding support to run other languages on the JVM. Additionally, the "write-once-run-anywhere" portability of JVM is compelling to Language developers.
+
+Lately we have seen a strong momentum towards using JVM as the enviornment for other languagues. Some langaues such as Scala ( which I program in these days) were designed to run on the JVM, while some others such as Ruby are being ported over. 
+
+As outlined in various articles, the main challange of building support for Dynamic languages on JVM comes from Java's Static Typing. The JVM was initally built to run Java, and so the bytecode verifier in the JVM expects to have information of input and output Types. 
+
+This article from Aritma sums up the challanges of supporting dynamic languages on the JVM and therole of "invokedyamic" bytecode instruction in the is space - http://www.artima.com/lejava/articles/dynamic_languages.html. 
+
+Some excerpts from this article : 
+
+"When developers write interpreter engines for dynamically typed languages, they have to invent a lot of synthetic Java types to be able to fill in what's needed by the Java bytecode for method invocations. That makes those interpreters brittle: if someone changes the code, it's difficult to have to go in and reinvent all those synthetic types. Equally important, it slows down the performance. Interestingly, the Java virtual machine doesn't require to know statically what those types are, only the bytecode requires that.
+
+JSR 292 is going to provide an additional bytecode that we will probably call invokedynamic. This provides an instruction to the JVM to make a method invocation, but without the types of the return value and the method parameters to be known in the bytecode. It's quite a technical, bureaucratic reason, but the implication is that it will speed up those interpreter implementations on the JVM, and will also make them more robust"
+
+
+
+

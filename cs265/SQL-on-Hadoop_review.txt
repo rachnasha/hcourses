@@ -1,0 +1,103 @@
+SQL-on-Hadoop: Full Circle Back to Shared-Nothing Database Architectures:
+
+
+what is the problem
+
+-  Using MapReduce framework to processes SQL statements
+-  Use the Shared-nothing Parallel Databases over hadoop
+-  This paper compares the performance of - Hive and Impala - two SQL-on-hadoop systems
+    which use column store with different file formats.
+-   It also studies the role of the file formats in I/O effectiveness
+-  Identify the reasons for Impala's perfomance comapred to Hive.
+
+
+why is it important
+-  many businesses today  use hadoop as the repository to store data coming from various sources
+   and to perform analytics
+- various frameworks are used to run analytics
+    - text analytics on unstructured data
+    - log analysis on semi-structured data
+    - SQL-like processing over semi-structure and structured data.
+
+main idea
+
+- 2 broad categories of these systems
+  -- native Hadoop-based
+     -- Hive : first SQL-like system over Hadoop - uses another framework such as
+        MapReduce or Tez to process SQL-like queries.
+     -- Shark - similar to Hive - just uses a different framework Spark
+     --  Impala - runs query on each node using its own long-running deamon processes.
+
+
+  -- database Hadoop-hybrids
+
+    -- uses relational database to execute query
+
+    This paper focuses on the first category and compares Hive with Impala
+
+Background :
+
+Impala:
+-- Impala uses - Paraquet columar format
+ - Impala's database like structure provides significant performance gains
+ - Impala, on the other
+hand, streams the data between stages of the query computation,
+resulting in significant performance improvements.
+- Impala
+cannot recover from mid-query failures yet, as it needs to re-run
+the whole query in case of a failure.
+-Impala’s I/O subsystem provides much faster ingestion
+rates, the single threaded execution of joins and aggregations impedes
+the performance of complex queries
+
+
+Hive:
+-- Hive uses ORC - which is the columnar style file format for HDFS
+ - Hive on MapReduce is also impacted by the startup and
+scheduling overheads of the MapReduce framework, and pays the
+cost of writing intermediate results into HDFS.
+
+
+- Hive on Tez eliminates the
+startup and materialization overheads of MapReduce, improving
+Hive’s overall performance.
+
+- However, it does not avoid the Java
+deserialization overheads during scan operations and thus it is still
+slower than Impala.
+
+-ORC tends to prefetch unnecessary data especially when a
+table contains a large number of columns
+
+
+
+
+
+Hive:
+
+- built on hadoop
+- gets all adavantages of hadoop - such as fault tolernace, high availability and scaling to 1000s of nodes
+- HiveQL - implements a SQL like query
+- HiveQL statements are parsed, compiled and optimized - produce a Query Execution Plan
+- This DAG - of MapReduce tasks are executed through MapReduce/Tez framework.
+- Supports 2 types of join
+    - repartition
+    - map-side
+
+ Cloudera Impala:
+
+ - supports sql processing over Hadoop
+ - highly efficient I/O layer
+ - exploits the streaming SIMD
+
+
+Conclusion:
+
+- Through various experiments and tests the paper proves that the performance of
+Impala provides a significant benefit over Hive when the data fits in memory
+
+- This is mostly to very efficient I/O and pipelined query execution - which close to
+shared nothing database.
+
+- Hive and Tez are CPU bound during scan operations and impact performance.
+

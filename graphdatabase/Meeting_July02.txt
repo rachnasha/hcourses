@@ -1,0 +1,57 @@
+Grace
+Graphchi
+GreenMarl
+Snap
+
+CSR - Compressed Sparse Row - Immutable and entirely memory resident
+ - not a fit for growing datasets and datasets larger than memory
+  -
+  Several approaches available to handle these issues but they either come with loss of feature ( like multiple versions of graph ) or noticeable performance and/or space penalties,
+
+
+  CSR  -
+
+  Vertex Table - 1 2 3 - implemented as arrays
+
+  Edge Table   1,2,2,0,1
+
+
+CSR variants:
+
+Connnectivity Server - identifies the end of adjacency list by setting the highest order bit in the last item
+
+Grace - stores the length of the adjacency list in the Edge table before the list itself.
+
+mutable csr -
+-- delta maps -- stores difference between CSR and current state
+         --> one way is hashtable of vertext ID and recently added /deleted edges.
+          --. Many other implementations possible - need to find these
+-- treating csr as a log --
+      -- modify the edge table by appending the data to the end and updating pointers of vertex table.
+       --preallocates , and holes wastes space
+-- dynamic block linked list
+
+Other datastructure for GraphDB:
+
+Adjacency List - implemented as a list of arrays( or array of arrays)
+
+-- updates and online operation ( OLTP) - store adjacency list in separate growable array
+
+ -- Neo4j - object database
+ -- STINGER - stream applications
+ -- Trinity - efficiency of analytics and OLTP
+
+
+Compressed BitMap Indices:
+
+DEX - graphs using compressed partitioned Bitmap
+  -- two Bplus tree
+    -- one for forward lookup ( get data associated with vertex ID)
+    -- one for reverse lookup ( find all Ids for a data)
+
+ Dense graphs
+  -- uncompressed adjacency matrix
+
+-- CSR - state of art of CSR - whoelse cites ( note )
+
+  Primitive, system that uses, variations of primitive, citations, DEscription of primitive, pictures

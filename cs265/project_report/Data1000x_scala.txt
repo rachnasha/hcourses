@@ -1,0 +1,41 @@
+time taken to build Tree with total nodes = 100000 is 132572ms
+Shallow Size of BTree is 48
+Deep Size of BTree is 5856816
+
+ Performance counter stats for './server.sh SimpleServer mode1000x /home/NOVUS/rsha/my_proj2/compare/94af253c/project_tests/ 0':
+
+   885,821,817,558 cycles                    #    0.000 GHz
+ 1,561,597,988,157 instructions              #    1.76  insns per cycle
+     1,475,611,523 cache-misses
+       518,463,606 branch-misses
+
+novusnyclk61 ~/my_proj2/compare/94af253c $ perf stat -e cycles,instructions,cache-misses,branch-misses ./server.sh SimpleServer mode1000x /home/NOVUS/rsha/my_proj2/compare/94af253c/project_tests/ 0
+creating Tree with a FANOUT of = 65
+time taken to build Tree with total nodes = 100000 is 132812ms
+Shallow Size of BTree is 48
+Deep Size of BTree is 5856816
+Calling rangeSearch for geq = 20 and le = 132
+Returning total 10 in time 15.400554656982422 microsecond
+Calling rangeSearch for geq = 20 and le = 350
+Returning total 41 in time 13.700170516967773 microsecond
+Calling rangeSearch for geq = 350 and le = 750
+Returning total 52 in time 7.400169372558594 microsecond
+Calling rangeSearch for geq = 350 and le = 1150
+Returning total 101 in time 18.600173950195312 microsecond
+Calling rangeSearch for geq = 100 and le = 5550
+Returning total 738 in time 16.100156784057617 microsecond
+Calling rangeSearch for geq = 500 and le = 20550
+Returning total 2707 in time 19.500181198120117 microsecond
+Calling rangeSearch for geq = 20 and le = 50550
+Returning total 6680 in time 13.300230026245117 microsecond
+shutting down server
+Could not listen on port: 9999.
+
+ Performance counter stats for './server.sh SimpleServer mode1000x /home/NOVUS/rsha/my_proj2/compare/94af253c/project_tests/ 0':
+
+   890,108,592,488 cycles                    #    0.000 GHz
+ 1,570,305,037,473 instructions              #    1.76  insns per cycle
+     1,474,168,161 cache-misses
+       529,838,927 branch-misses
+
+     223.438547301 seconds time elapsed

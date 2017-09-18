@@ -1,0 +1,291 @@
+- You joined the Main Room. ( 5:06 PM ) -
+- Your chat permission has been enabled. ( 5:06 PM ) -
+rsha
+5:06 PM
+hey alex
+how are you
+5:07 PM
+good time to chat ?
+5:07 PM
+Alex
+5:07 PM
+hi there, I'm doing well, thanks for asking. How about yourself?
+Yes, right now works well for me
+5:07 PM
+rsha
+5:07 PM
+ok, talking
+Alex
+5:07 PM
+Hi
+Yes I can
+5:07 PM
+Oh, I'm sorry to hear
+5:08 PM
+Which emails?
+5:08 PM
+my email is: zezhouliu@college.harvard.edu
+5:08 PM
+(my personal)
+5:08 PM
+but if you want to contact the cs165 list, you can email cs165-staff@seas.harvard.edu
+5:09 PM
+Ah, okay. I'm not sure if I am linked to the canvas website (that might just be sent to stratos)
+5:10 PM
+I'm sorry about that
+5:10 PM
+rsha
+5:11 PM
+https://canvas.harvard.edu/conversations?#filter=type=sent
+- Mike joined the Main Room. ( 5:12 PM ) -
+Alex
+5:12 PM
+Sure
+Sure
+5:12 PM
+Okay
+5:13 PM
+I gave you permission to share
+5:13 PM
+Yeah
+5:13 PM
+your screen
+5:13 PM
+You added a DataType
+5:14 PM
+Yeah
+5:14 PM
+Here is a link if it is easier: http://collabedit.com/62bcs
+5:14 PM
+Yep
+5:14 PM
+- Mike left the Main Room. ( 5:14 PM ) -
+Alex
+5:15 PM
+What types do you need to send back to the client?
+Sometimes it is a list of ints, and sometimes its an int/float
+5:15 PM
+Yeah, I think what you are doing makes sense
+5:15 PM
+I'm assuming that DataType is an enum?
+5:15 PM
+And then you compare with the DataType on the client side to know what the data type is
+5:16 PM
+so that you can parse the response right?
+5:16 PM
+Okay
+5:16 PM
+I don't think this is too overcomplicated (it seems like this will work for the rest of the operators with little to no modifications)
+5:17 PM
+Not everyone submitted the first milestone completed yet
+5:17 PM
+People submitted what they had so far for the project
+5:17 PM
+But I would say that the majority of the submissions are not fully completed milestone 1
+5:17 PM
+I think you are on-track
+5:17 PM
+This looks like you have a great idea of what you are doing
+5:18 PM
+That sounds like a good separation of logic
+5:18 PM
+Sure, of course
+5:18 PM
+Yeah
+5:19 PM
+Do you know if you can paste the code to here: http://collabedit.com/62bcs
+5:19 PM
+So I can do a pass over the code
+5:19 PM
+Yes
+5:20 PM
+Sorry, I think your screen went black
+5:21 PM
+Which part of the code are you referring to?
+5:21 PM
+Not now
+5:22 PM
+Are you on the screen sharing page?
+5:22 PM
+Also, can I ask what value1 refers to in the add function?
+5:23 PM
+It is an array?
+5:23 PM
+Not yet
+5:24 PM
+Why is value1 a long long int** rather than a long long int*?
+5:24 PM
+Yes
+5:24 PM
+I can see it
+5:24 PM
+Why is value1 a long long int** rather than a long long int*?
+5:25 PM
+You can mutate an array even if it is a long long int*
+5:26 PM
+A long long int* is an array (and it is mutable)
+5:26 PM
+A long long int** is a pointer to an array
+5:26 PM
+I think you can simplify this by changing it to long long int*
+5:26 PM
+That is correct
+5:27 PM
+But imagine you have an array A
+5:27 PM
+or array called value1
+5:27 PM
+This is occupied in a place in memory (for example, let's say at 0x1234)
+5:27 PM
+so that array location is stored at 0x1234
+5:27 PM
+So the first element is at 0x1234, the second element is at 0x1238, etc
+5:28 PM
+right?
+5:28 PM
+So what you do something like:
+5:28 PM
+int* value1 = malloc(sizeof(something))
+5:28 PM
+value1 will store 0x1234
+5:28 PM
+But you need to store that address somewhere
+5:28 PM
+so where value1 itself lives
+5:28 PM
+is at a different address
+5:28 PM
+&value1 might be something like 0x2753
+5:28 PM
+or something
+5:28 PM
+So even if you pass by value, then you will be passing the value 0x1234
+5:29 PM
+which means inside of this function add, you can properly index to the second value
+5:29 PM
+Not quite
+5:29 PM
+it is making a copy of value1
+5:29 PM
+And what is value1? value1 is 0x1234
+5:29 PM
+Which means its passing a copy of where the array is located in memory
+5:29 PM
+It's passing a copy of the address of where teh array is located
+5:30 PM
+So that happens when you are trying to change the value of the thing you're passing in itself
+5:30 PM
+Okay, we can use our current example
+5:31 PM
+imagine what it means to pass in value1
+5:31 PM
+value1 is passed in by copy (as you said)
+5:31 PM
+What is copied? It is what value1 stores, which is 0x1234
+5:31 PM
+So if you want to modify anything at 0x1234, you are fine to do that by doing value1[i]
+5:32 PM
+However, you cannot modify what value1 itself stores
+5:32 PM
+for example, you cannot malloc a new array
+5:32 PM
+And expect the original value1 to point to the new address (since the original value1 will still hold the value 0x1234)
+5:32 PM
+Yes, I can follow
+5:34 PM
+Do you see the file you have shared with me?
+5:34 PM
+On line 16, you are trying to get the handle data
+5:35 PM
+And you have a check on line 17 to make sure that the handle exists
+5:35 PM
+But after that, you perform the while loop outside of the check
+5:35 PM
+I expect that the while loop should only be executed if the if condition passes
+5:35 PM
+I see
+5:36 PM
+can you add a printf statement
+5:36 PM
+inside that for loop
+5:36 PM
+to see if the values are being passed in correctly on that first pass
+5:36 PM
+I also think that
+5:36 PM
+Line 38-46 should only be inside the if condition on line 35
+5:37 PM
+(as in, you should not try to aggregate the SUM if the handle does not exist)
+5:37 PM
+That looks like it ran this time
+5:39 PM
+At least we are getting closer!
+5:39 PM
+See if this fix might help:
+5:39 PM
+Line 38-46 should only be inside the if condition on line 35 5:37 PM (as in, you should not try to aggregate the SUM if the handle does not exist)
+5:39 PM
+I see, okay sounds like a plan
+5:41 PM
+please email me if you have any trouble with the code!
+5:41 PM
+I am happy to take a look into it to help you debug
+5:41 PM
+You can also send me the repo as well
+5:41 PM
+Yeah, or you can ping me via email and we can both get on blackboard
+5:41 PM
+That works for me as well
+5:41 PM
+I think it will be okay if you can't finish it all
+5:42 PM
+We are flexible with the milestones and will be as supportive as we can
+5:42 PM
+We have noticed that much of the class are behind schedule as well
+5:43 PM
+And we may decide to drop the fourth milestone, depending on how things go
+5:43 PM
+Are you referring to milestone 1 or 2?
+5:43 PM
+So I might not be the best person to talk to with that regards, since I wasn't involved with assigning the milestone goals
+5:43 PM
+I think the goal of the staff was to put as much direction as possible for people to do
+5:44 PM
+Because there are always some people in the course who always work and push ahead
+5:44 PM
+I totally understand, I will give some feedback to Stratos
+5:44 PM
+C is definitely a tough language to develop in--it's easy to get stuck on a small mistake that ruins the entire code
+5:44 PM
+We have an open-door policy, that whenever you need help we are happy to make time to help you
+5:45 PM
+You are not alone!
+5:45 PM
+There are other students as well struggling with C
+5:45 PM
+Yeah, of course, I will talk to Stratos and the other staff members and see if we might be able to make the fourth milestone optional
+5:45 PM
+I think we like to have open opportunities available to all students
+5:45 PM
+But maybe we added too many in the sense that it seemed like demanded requirements
+5:46 PM
+Of course, I think Stratos is very considerate and will be happy to talk to you about that
+5:46 PM
+If you email him, I'm sure he will get back to you and make time to meet
+5:47 PM
+Great, I wish I could be of more help
+5:47 PM
+Please let me know anything I can help with
+5:47 PM
+Cheers!
+5:47 PM
+Good luck!
+5:47 PM
+rsha
+5:47 PM
+thank you
+talk to next wek alex - Thanks for all the help - very helpful
+5:48 PM
+**talk to you next week
+5:48 PM
+just out of interest - were you able to finish all milestones when you took the course ?

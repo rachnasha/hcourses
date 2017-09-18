@@ -1,0 +1,49 @@
+ 4. (a) A dodecahedron has 12 faces, each a regular pentagon. How many
+edges does it have?
+
+5 edges per side
+12 sides per dodecahedron
+
+each edge is shared by 2 pentagons
+
+(5*12)/2 = 30
+
+(b) Three faces of the dodecahedron meet at each vertex. How many
+vertices does the dodecahedron have?
+
+5 vertices per side
+12 sides
+
+each vertex is shared by 3
+
+(5*12)/3 = 24
+
+bottom pentagon + top pentagon  = 10 edges (2 x 5)
+
+upper pentagons (5) (5 edges each, but we've taken one away counting the top in its entirety., So 4 x 5 = 20. -5
+Total uppper disting edges = 15
+
+lower pentagons (5) same as upper = 15
+
+Now , we just need to subtract the edges shared by upper and lower hemispheres. 10
+30
+
+
+1. (( 26 ^ 3) * (10 ^ 3)) +  ( 26 ^5) + ( 36 ^ 2)
+
+2.10^9 - 9^9 +1
+
+3.How many anagrams does the name “hardy” have? How about the names
+“littlewood” and “ramanujan?” The anagrams do not have to be dictionary
+words.
+
+hardy = 5*4*3*2*1 = 5!
+littlewood = 2 = t's, 2 - o's  : 
+all combinations = 10! ( these have duplicates)  - 10!/ 2!*2!
+
+from excutive summary - The division rule: When counting, it is fine to count things more than
+once, provided that everything gets overcounted the same number of
+times and that you know that number and divide by it.
+
+
+ramanujan - 3 - a's.: 2 - n'2 =  9!/3! * 2!

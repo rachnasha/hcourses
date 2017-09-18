@@ -1,0 +1,72 @@
+Using set-builder notation, give formal descriptions of the following sets:
+(a) The power set of a set X, denoted P(X). 
+(b) The product of two sets X and Y .
+(c) The difference between two sets X and Y.
+
+(a) P(X) := ( y : y is a subset of X )   <----should be curly bracekts, but this German keyboard is hiding them from me....
+
+(b) XxY := ( (a,b) : a in X & b in Y )
+
+(c) X-Y := ( z : z in X & z not in Y )
+
+
+
+Countability 
+
+2 . (1/2)(n+m+1)(n+m)+n
+cantor pairing function
+check the wiki on this if you're interested,
+
+
+4. S0 = ( e )
+S1 = ( 0, 1 )
+S2 = (00, 01, 10, 11)
+...
+each Si is finite, more precisely, card(Si) = 2^i.
+
+So we want the cardinality of a countable collection of finite sets. This is countably infinite.
+
+3. Using state machines, prove that every amount of postage of 12 cents or
+more can be formed using just 4-cent and 5-cent stamps.
+
+States := {(b,s,t)} where b is number of 5 cent stamps, s is number of 4cent stamps and t is the total amount of postage. b,s,t in N.
+
+Start State := (0,3,12)
+Transitions := (b,s,t) --> (0, b+s+1, t+1) if (t+1)%4=0      <---- Ek : t = 4k + 3
+			(b+1 ,s-1, t+1) otherwise
+
+
+(b,s,t)--->(b+1,s-1,t+1)  for s > 0
+(b,0,t)--->(b-3,4, t+1)  for b > 2
+
+
+
+Preserved Invariant: 5b+4s=t
+Base case: 5*0 + 4*3 = 12 so the preserved invariant holds for the start state.
+Inductive Step: Assume the Preserved Invariant is true for some state.
+
+You have to prove that the invariant holds for (0,b+s+1,t+1) and for (b+1,s-1,t+1) when it holds for (b,s,t).
+
+Assume the invariant holds for the state (b,s,t). Then 5b+4s=t.
+
+We want to show 5*0+4(b+s+1) = t+1. This is equivalent to 4b+4s+3 = t, this should be equal to 5b+4s. You would have to show that 3 = b.
+
+
+Module 13 has a MAJOR error:
+
+The module claims that countably infinite sets are closed under the following operations:
+-subset
+-intersection
+-cartesian product
+-countably infinite union
+
+
+The empty set is a subset of the naturals, but it is not countably infinite.
+
+The intersection of the positive integers with the negative integers is the empty set, which is not countably infinite.
+....card of the intersection could be 0, 1, 2, ...., or card(N)
+
+A finite cartesian product of countable sets is countable. But the infinite cartesian product of the naturals with themselves is uncountable: NxNxN... <---- this is UNCOUNTABLE
+
+Yes, the class of countably infinite sets is closed under countably infinite union.
+

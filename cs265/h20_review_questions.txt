@@ -1,0 +1,22 @@
+Questions:
+
+1. How is the first query handled ? Do we pay the cost of running hueristics ? Or is the first query
+ performance suboptimal.?
+
+2. What is the basic layout that is started with ? columns based ?
+
+3. In this example
+  Query - R(a,b,c), R(d,e)
+   - R(a,b,c,d,e)
+  - where clause uis evaluated against ? R(d,e) ?
+   - once done - the we R(a+b+c)
+
+4. Column-major. For a column-major layout the execution strategy
+of H2O materializes intermediate results from filter evaluations
+into vectors of matching positions. Similarly, it handles the output
+of complex arithmetic expressions. For example, in Q1 of Section 2
+computing the expression a+b+c results into the materialization
+of two intermediate columns, one for a+b and one for the result of
+the addition of the previous intermediate result with c.
+
+  vectors of matching positions- does it mean bit - vector ?

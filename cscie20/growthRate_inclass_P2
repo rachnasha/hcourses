@@ -1,0 +1,14 @@
+2. (a) Suppose f(x) = 10x^2 .
+ Is f(x) = O(x^2) - True ? 
+ Is f(x) = O(x^3)? True O : <=
+
+(b) Prove that if f(x) = O(x^n), then f(x) = O(x^N ) for all N ∈ N such that N > n
+
+limit f(n) / g(n) < infinity
+m, x0
+
+f(x) <= m.g(x^n)  n >= xo
+
+N > n
+
+m. g(x ^n ) < m.g(x ^ N)

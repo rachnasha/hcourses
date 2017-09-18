@@ -1,0 +1,55 @@
+novusnyclk61 (cs265) ~/my_proj2/rachnashas-cs165-2015-base/src $ perf stat -e cycles,instructions,cache-misses,branch-misses ./server
+result of intit db : 1
+Table thread recieved signal of database created
+In load db to load file ../project_tests/data10x.csv, database: db1
+Total lines :1000
+Starting INdexing
+Time taken to Index in microseconds:           4.000000000
+Time taken to load file : data10x.csv , time : 0.000000000
+clusterd is :0
+Size of alloc 8268
+Size of total 8284
+==== size of Btree :8284 bytes
+Starting shutdown ........
+sync_db :db1
+Finished shutdown .....
+
+ Performance counter stats for './server':
+
+         6,798,297 cycles                    #    0.000 GHz
+         5,853,435 instructions              #    0.86  insns per cycle
+            13,593 cache-misses
+            37,012 branch-misses
+
+      24.119313858 seconds time elapsed
+
+novusnyclk61 (cs265) ~/my_proj2/rachnashas-cs165-2015-base/src $ perf stat -e cycles,instructions,cache-misses,branch-misses ./server
+result of intit db : 1
+Table thread recieved signal of database created
+In load db to load file ../project_tests/data10x.csv, database: db1
+Total lines :1000
+Starting INdexing
+Time taken to Index in microseconds:           4.000000000
+Time taken to load file : data10x.csv , time : 0.000000000
+clusterd is :0
+Size of alloc 8268
+Size of total 8284
+==== size of Btree :8284 bytes
+Time taken in BTree search length: 2, time in microseconds:          24.000000000  - 0.002
+Time taken in BTree search length: 7, time in microseconds:          22.000000000  - 0.007
+Time taken in BTree search length: 9, time in microseconds:          22.000000000  - 0.009
+Time taken in BTree search length: 11, time in microseconds:          21.000000000 - 0.011
+Time taken in BTree search length: 17, time in microseconds:          23.000000000  - 0.017
+Time taken in BTree search length: 135, time in microseconds:          34.000000000 - 0.135
+Starting shutdown ........
+sync_db :db1
+Finished shutdown .....
+
+ Performance counter stats for './server':
+
+        14,418,225 cycles                    #    0.000 GHz
+         9,055,187 instructions              #    0.63  insns per cycle
+            35,455 cache-misses
+            92,857 branch-misses
+
+      43.593470803 seconds time elapsed

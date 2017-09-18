@@ -1,0 +1,1555 @@
+Classfile jar:file:/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home/jre/lib/rt.jar!/java/lang/StringBuilder.class
+  Last modified Jul 25, 2014; size 9573 bytes
+  MD5 checksum fd8b4d4de2d566cd2a2bae695ec14340
+  Compiled from "StringBuilder.java"
+public final class java.lang.StringBuilder extends java.lang.AbstractStringBuilder implements java.io.Serializable,java.lang.CharSequence
+  SourceFile: "StringBuilder.java"
+  minor version: 0
+  major version: 51
+  flags: ACC_PUBLIC, ACC_FINAL, ACC_SUPER
+Constant pool:
+    #1 = Methodref          #100.#219     //  java/lang/AbstractStringBuilder."<init>":(I)V
+    #2 = Methodref          #16.#220      //  java/lang/String.length:()I
+    #3 = Methodref          #19.#221      //  java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    #4 = InterfaceMethodref #102.#220     //  java/lang/CharSequence.length:()I
+    #5 = Methodref          #19.#219      //  java/lang/StringBuilder."<init>":(I)V
+    #6 = Methodref          #19.#222      //  java/lang/StringBuilder.append:(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+    #7 = Methodref          #16.#223      //  java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+    #8 = Methodref          #100.#224     //  java/lang/AbstractStringBuilder.append:(Ljava/lang/String;)Ljava/lang/AbstractStringBuilder;
+    #9 = String             #225          //  null
+   #10 = Methodref          #19.#220      //  java/lang/StringBuilder.length:()I
+   #11 = Fieldref           #19.#226      //  java/lang/StringBuilder.count:I
+   #12 = Fieldref           #19.#227      //  java/lang/StringBuilder.value:[C
+   #13 = Methodref          #19.#228      //  java/lang/StringBuilder.expandCapacity:(I)V
+   #14 = Methodref          #19.#229      //  java/lang/StringBuilder.getChars:(II[CI)V
+   #15 = Methodref          #100.#230     //  java/lang/AbstractStringBuilder.append:(Ljava/lang/StringBuffer;)Ljava/lang/AbstractStringBuilder;
+   #16 = Class              #231          //  java/lang/String
+   #17 = Class              #232          //  java/lang/StringBuffer
+   #18 = Methodref          #19.#233      //  java/lang/StringBuilder.append:(Ljava/lang/StringBuffer;)Ljava/lang/StringBuilder;
+   #19 = Class              #234          //  java/lang/StringBuilder
+   #20 = Methodref          #19.#235      //  java/lang/StringBuilder.append:(Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;
+   #21 = Methodref          #19.#236      //  java/lang/StringBuilder.append:(Ljava/lang/CharSequence;II)Ljava/lang/StringBuilder;
+   #22 = Methodref          #100.#237     //  java/lang/AbstractStringBuilder.append:(Ljava/lang/CharSequence;II)Ljava/lang/AbstractStringBuilder;
+   #23 = Methodref          #100.#238     //  java/lang/AbstractStringBuilder.append:([C)Ljava/lang/AbstractStringBuilder;
+   #24 = Methodref          #100.#239     //  java/lang/AbstractStringBuilder.append:([CII)Ljava/lang/AbstractStringBuilder;
+   #25 = Methodref          #100.#240     //  java/lang/AbstractStringBuilder.append:(Z)Ljava/lang/AbstractStringBuilder;
+   #26 = Methodref          #100.#241     //  java/lang/AbstractStringBuilder.append:(C)Ljava/lang/AbstractStringBuilder;
+   #27 = Methodref          #100.#242     //  java/lang/AbstractStringBuilder.append:(I)Ljava/lang/AbstractStringBuilder;
+   #28 = Methodref          #100.#243     //  java/lang/AbstractStringBuilder.append:(J)Ljava/lang/AbstractStringBuilder;
+   #29 = Methodref          #100.#244     //  java/lang/AbstractStringBuilder.append:(F)Ljava/lang/AbstractStringBuilder;
+   #30 = Methodref          #100.#245     //  java/lang/AbstractStringBuilder.append:(D)Ljava/lang/AbstractStringBuilder;
+   #31 = Methodref          #100.#246     //  java/lang/AbstractStringBuilder.appendCodePoint:(I)Ljava/lang/AbstractStringBuilder;
+   #32 = Methodref          #100.#247     //  java/lang/AbstractStringBuilder.delete:(II)Ljava/lang/AbstractStringBuilder;
+   #33 = Methodref          #100.#248     //  java/lang/AbstractStringBuilder.deleteCharAt:(I)Ljava/lang/AbstractStringBuilder;
+   #34 = Methodref          #100.#249     //  java/lang/AbstractStringBuilder.replace:(IILjava/lang/String;)Ljava/lang/AbstractStringBuilder;
+   #35 = Methodref          #100.#250     //  java/lang/AbstractStringBuilder.insert:(I[CII)Ljava/lang/AbstractStringBuilder;
+   #36 = Methodref          #19.#251      //  java/lang/StringBuilder.insert:(ILjava/lang/String;)Ljava/lang/StringBuilder;
+   #37 = Methodref          #100.#252     //  java/lang/AbstractStringBuilder.insert:(ILjava/lang/String;)Ljava/lang/AbstractStringBuilder;
+   #38 = Methodref          #100.#253     //  java/lang/AbstractStringBuilder.insert:(I[C)Ljava/lang/AbstractStringBuilder;
+   #39 = Methodref          #19.#254      //  java/lang/StringBuilder.insert:(ILjava/lang/CharSequence;II)Ljava/lang/StringBuilder;
+   #40 = Methodref          #100.#255     //  java/lang/AbstractStringBuilder.insert:(ILjava/lang/CharSequence;II)Ljava/lang/AbstractStringBuilder;
+   #41 = Methodref          #100.#256     //  java/lang/AbstractStringBuilder.insert:(IZ)Ljava/lang/AbstractStringBuilder;
+   #42 = Methodref          #100.#257     //  java/lang/AbstractStringBuilder.insert:(IC)Ljava/lang/AbstractStringBuilder;
+   #43 = Methodref          #16.#258      //  java/lang/String.valueOf:(I)Ljava/lang/String;
+   #44 = Methodref          #16.#259      //  java/lang/String.valueOf:(J)Ljava/lang/String;
+   #45 = Methodref          #16.#260      //  java/lang/String.valueOf:(F)Ljava/lang/String;
+   #46 = Methodref          #16.#261      //  java/lang/String.valueOf:(D)Ljava/lang/String;
+   #47 = Methodref          #19.#262      //  java/lang/StringBuilder.indexOf:(Ljava/lang/String;I)I
+   #48 = Methodref          #16.#263      //  java/lang/String.toCharArray:()[C
+   #49 = Methodref          #16.#264      //  java/lang/String.indexOf:([CII[CIII)I
+   #50 = Methodref          #19.#265      //  java/lang/StringBuilder.lastIndexOf:(Ljava/lang/String;I)I
+   #51 = Methodref          #16.#266      //  java/lang/String.lastIndexOf:([CII[CIII)I
+   #52 = Methodref          #100.#267     //  java/lang/AbstractStringBuilder.reverse:()Ljava/lang/AbstractStringBuilder;
+   #53 = Methodref          #16.#268      //  java/lang/String."<init>":([CII)V
+   #54 = Methodref          #269.#270     //  java/io/ObjectOutputStream.defaultWriteObject:()V
+   #55 = Methodref          #269.#271     //  java/io/ObjectOutputStream.writeInt:(I)V
+   #56 = Methodref          #269.#272     //  java/io/ObjectOutputStream.writeObject:(Ljava/lang/Object;)V
+   #57 = Methodref          #273.#274     //  java/io/ObjectInputStream.defaultReadObject:()V
+   #58 = Methodref          #273.#275     //  java/io/ObjectInputStream.readInt:()I
+   #59 = Methodref          #273.#276     //  java/io/ObjectInputStream.readObject:()Ljava/lang/Object;
+   #60 = Class              #277          //  "[C"
+   #61 = Methodref          #19.#278      //  java/lang/StringBuilder.reverse:()Ljava/lang/StringBuilder;
+   #62 = Methodref          #19.#279      //  java/lang/StringBuilder.insert:(ID)Ljava/lang/StringBuilder;
+   #63 = Methodref          #19.#280      //  java/lang/StringBuilder.insert:(IF)Ljava/lang/StringBuilder;
+   #64 = Methodref          #19.#281      //  java/lang/StringBuilder.insert:(IJ)Ljava/lang/StringBuilder;
+   #65 = Methodref          #19.#282      //  java/lang/StringBuilder.insert:(II)Ljava/lang/StringBuilder;
+   #66 = Methodref          #19.#283      //  java/lang/StringBuilder.insert:(IC)Ljava/lang/StringBuilder;
+   #67 = Methodref          #19.#284      //  java/lang/StringBuilder.insert:(IZ)Ljava/lang/StringBuilder;
+   #68 = Methodref          #19.#285      //  java/lang/StringBuilder.insert:(ILjava/lang/CharSequence;)Ljava/lang/StringBuilder;
+   #69 = Methodref          #19.#286      //  java/lang/StringBuilder.insert:(I[C)Ljava/lang/StringBuilder;
+   #70 = Methodref          #19.#287      //  java/lang/StringBuilder.insert:(ILjava/lang/Object;)Ljava/lang/StringBuilder;
+   #71 = Methodref          #19.#288      //  java/lang/StringBuilder.insert:(I[CII)Ljava/lang/StringBuilder;
+   #72 = Methodref          #100.#289     //  java/lang/AbstractStringBuilder.substring:(II)Ljava/lang/String;
+   #73 = Methodref          #100.#290     //  java/lang/AbstractStringBuilder.subSequence:(II)Ljava/lang/CharSequence;
+   #74 = Methodref          #100.#291     //  java/lang/AbstractStringBuilder.substring:(I)Ljava/lang/String;
+   #75 = Methodref          #19.#292      //  java/lang/StringBuilder.replace:(IILjava/lang/String;)Ljava/lang/StringBuilder;
+   #76 = Methodref          #19.#293      //  java/lang/StringBuilder.deleteCharAt:(I)Ljava/lang/StringBuilder;
+   #77 = Methodref          #19.#294      //  java/lang/StringBuilder.appendCodePoint:(I)Ljava/lang/StringBuilder;
+   #78 = Methodref          #19.#295      //  java/lang/StringBuilder.delete:(II)Ljava/lang/StringBuilder;
+   #79 = Methodref          #19.#296      //  java/lang/StringBuilder.append:(D)Ljava/lang/StringBuilder;
+   #80 = Methodref          #19.#297      //  java/lang/StringBuilder.append:(F)Ljava/lang/StringBuilder;
+   #81 = Methodref          #19.#298      //  java/lang/StringBuilder.append:(J)Ljava/lang/StringBuilder;
+   #82 = Methodref          #19.#299      //  java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+   #83 = Methodref          #19.#300      //  java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+   #84 = Methodref          #19.#301      //  java/lang/StringBuilder.append:(Z)Ljava/lang/StringBuilder;
+   #85 = Methodref          #19.#302      //  java/lang/StringBuilder.append:([CII)Ljava/lang/StringBuilder;
+   #86 = Methodref          #19.#303      //  java/lang/StringBuilder.append:([C)Ljava/lang/StringBuilder;
+   #87 = Methodref          #19.#304      //  java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+   #88 = Methodref          #100.#305     //  java/lang/AbstractStringBuilder.setCharAt:(IC)V
+   #89 = Methodref          #100.#229     //  java/lang/AbstractStringBuilder.getChars:(II[CI)V
+   #90 = Methodref          #100.#306     //  java/lang/AbstractStringBuilder.offsetByCodePoints:(II)I
+   #91 = Methodref          #100.#307     //  java/lang/AbstractStringBuilder.codePointCount:(II)I
+   #92 = Methodref          #100.#308     //  java/lang/AbstractStringBuilder.codePointBefore:(I)I
+   #93 = Methodref          #100.#309     //  java/lang/AbstractStringBuilder.codePointAt:(I)I
+   #94 = Methodref          #100.#310     //  java/lang/AbstractStringBuilder.charAt:(I)C
+   #95 = Methodref          #100.#311     //  java/lang/AbstractStringBuilder.setLength:(I)V
+   #96 = Methodref          #100.#312     //  java/lang/AbstractStringBuilder.trimToSize:()V
+   #97 = Methodref          #100.#313     //  java/lang/AbstractStringBuilder.ensureCapacity:(I)V
+   #98 = Methodref          #100.#314     //  java/lang/AbstractStringBuilder.capacity:()I
+   #99 = Methodref          #100.#220     //  java/lang/AbstractStringBuilder.length:()I
+  #100 = Class              #315          //  java/lang/AbstractStringBuilder
+  #101 = Class              #316          //  java/io/Serializable
+  #102 = Class              #317          //  java/lang/CharSequence
+  #103 = Utf8               serialVersionUID
+  #104 = Utf8               J
+  #105 = Utf8               ConstantValue
+  #106 = Long               4383685877147921099l
+  #108 = Utf8               <init>
+  #109 = Utf8               ()V
+  #110 = Utf8               Code
+  #111 = Utf8               LineNumberTable
+  #112 = Utf8               (I)V
+  #113 = Utf8               (Ljava/lang/String;)V
+  #114 = Utf8               (Ljava/lang/CharSequence;)V
+  #115 = Utf8               append
+  #116 = Utf8               (Ljava/lang/Object;)Ljava/lang/StringBuilder;
+  #117 = Utf8               (Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #118 = Utf8               (Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;
+  #119 = Utf8               StackMapTable
+  #120 = Utf8               (Ljava/lang/StringBuffer;)Ljava/lang/StringBuilder;
+  #121 = Utf8               (Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+  #122 = Utf8               (Ljava/lang/CharSequence;II)Ljava/lang/StringBuilder;
+  #123 = Utf8               ([C)Ljava/lang/StringBuilder;
+  #124 = Utf8               ([CII)Ljava/lang/StringBuilder;
+  #125 = Utf8               (Z)Ljava/lang/StringBuilder;
+  #126 = Utf8               (C)Ljava/lang/StringBuilder;
+  #127 = Utf8               (I)Ljava/lang/StringBuilder;
+  #128 = Utf8               (J)Ljava/lang/StringBuilder;
+  #129 = Utf8               (F)Ljava/lang/StringBuilder;
+  #130 = Utf8               (D)Ljava/lang/StringBuilder;
+  #131 = Utf8               appendCodePoint
+  #132 = Utf8               delete
+  #133 = Utf8               (II)Ljava/lang/StringBuilder;
+  #134 = Utf8               deleteCharAt
+  #135 = Utf8               replace
+  #136 = Utf8               (IILjava/lang/String;)Ljava/lang/StringBuilder;
+  #137 = Utf8               insert
+  #138 = Utf8               (I[CII)Ljava/lang/StringBuilder;
+  #139 = Utf8               (ILjava/lang/Object;)Ljava/lang/StringBuilder;
+  #140 = Utf8               (ILjava/lang/String;)Ljava/lang/StringBuilder;
+  #141 = Utf8               (I[C)Ljava/lang/StringBuilder;
+  #142 = Utf8               (ILjava/lang/CharSequence;)Ljava/lang/StringBuilder;
+  #143 = Utf8               (ILjava/lang/CharSequence;II)Ljava/lang/StringBuilder;
+  #144 = Utf8               (IZ)Ljava/lang/StringBuilder;
+  #145 = Utf8               (IC)Ljava/lang/StringBuilder;
+  #146 = Utf8               (IJ)Ljava/lang/StringBuilder;
+  #147 = Utf8               (IF)Ljava/lang/StringBuilder;
+  #148 = Utf8               (ID)Ljava/lang/StringBuilder;
+  #149 = Utf8               indexOf
+  #150 = Utf8               (Ljava/lang/String;)I
+  #151 = Utf8               (Ljava/lang/String;I)I
+  #152 = Utf8               lastIndexOf
+  #153 = Utf8               reverse
+  #154 = Utf8               ()Ljava/lang/StringBuilder;
+  #155 = Utf8               toString
+  #156 = Utf8               ()Ljava/lang/String;
+  #157 = Utf8               writeObject
+  #158 = Utf8               (Ljava/io/ObjectOutputStream;)V
+  #159 = Utf8               Exceptions
+  #160 = Class              #318          //  java/io/IOException
+  #161 = Utf8               readObject
+  #162 = Utf8               (Ljava/io/ObjectInputStream;)V
+  #163 = Class              #319          //  java/lang/ClassNotFoundException
+  #164 = Utf8               ()Ljava/lang/AbstractStringBuilder;
+  #165 = Utf8               (ID)Ljava/lang/AbstractStringBuilder;
+  #166 = Utf8               (IF)Ljava/lang/AbstractStringBuilder;
+  #167 = Utf8               (IJ)Ljava/lang/AbstractStringBuilder;
+  #168 = Utf8               (II)Ljava/lang/AbstractStringBuilder;
+  #169 = Utf8               (IC)Ljava/lang/AbstractStringBuilder;
+  #170 = Utf8               (IZ)Ljava/lang/AbstractStringBuilder;
+  #171 = Utf8               (ILjava/lang/CharSequence;II)Ljava/lang/AbstractStringBuilder;
+  #172 = Utf8               (ILjava/lang/CharSequence;)Ljava/lang/AbstractStringBuilder;
+  #173 = Utf8               (I[C)Ljava/lang/AbstractStringBuilder;
+  #174 = Utf8               (ILjava/lang/String;)Ljava/lang/AbstractStringBuilder;
+  #175 = Utf8               (ILjava/lang/Object;)Ljava/lang/AbstractStringBuilder;
+  #176 = Utf8               (I[CII)Ljava/lang/AbstractStringBuilder;
+  #177 = Utf8               substring
+  #178 = Utf8               (II)Ljava/lang/String;
+  #179 = Utf8               subSequence
+  #180 = Utf8               (II)Ljava/lang/CharSequence;
+  #181 = Utf8               (I)Ljava/lang/String;
+  #182 = Utf8               (IILjava/lang/String;)Ljava/lang/AbstractStringBuilder;
+  #183 = Utf8               (I)Ljava/lang/AbstractStringBuilder;
+  #184 = Utf8               (D)Ljava/lang/AbstractStringBuilder;
+  #185 = Utf8               (F)Ljava/lang/AbstractStringBuilder;
+  #186 = Utf8               (J)Ljava/lang/AbstractStringBuilder;
+  #187 = Utf8               (C)Ljava/lang/AbstractStringBuilder;
+  #188 = Utf8               (Z)Ljava/lang/AbstractStringBuilder;
+  #189 = Utf8               ([CII)Ljava/lang/AbstractStringBuilder;
+  #190 = Utf8               ([C)Ljava/lang/AbstractStringBuilder;
+  #191 = Utf8               (Ljava/lang/CharSequence;II)Ljava/lang/AbstractStringBuilder;
+  #192 = Utf8               (Ljava/lang/CharSequence;)Ljava/lang/AbstractStringBuilder;
+  #193 = Utf8               (Ljava/lang/StringBuffer;)Ljava/lang/AbstractStringBuilder;
+  #194 = Utf8               (Ljava/lang/String;)Ljava/lang/AbstractStringBuilder;
+  #195 = Utf8               (Ljava/lang/Object;)Ljava/lang/AbstractStringBuilder;
+  #196 = Utf8               setCharAt
+  #197 = Utf8               (IC)V
+  #198 = Utf8               getChars
+  #199 = Utf8               (II[CI)V
+  #200 = Utf8               offsetByCodePoints
+  #201 = Utf8               (II)I
+  #202 = Utf8               codePointCount
+  #203 = Utf8               codePointBefore
+  #204 = Utf8               (I)I
+  #205 = Utf8               codePointAt
+  #206 = Utf8               charAt
+  #207 = Utf8               (I)C
+  #208 = Utf8               setLength
+  #209 = Utf8               trimToSize
+  #210 = Utf8               ensureCapacity
+  #211 = Utf8               capacity
+  #212 = Utf8               ()I
+  #213 = Utf8               length
+  #214 = Utf8               (C)Ljava/lang/Appendable;
+  #215 = Utf8               (Ljava/lang/CharSequence;II)Ljava/lang/Appendable;
+  #216 = Utf8               (Ljava/lang/CharSequence;)Ljava/lang/Appendable;
+  #217 = Utf8               SourceFile
+  #218 = Utf8               StringBuilder.java
+  #219 = NameAndType        #108:#112     //  "<init>":(I)V
+  #220 = NameAndType        #213:#212     //  length:()I
+  #221 = NameAndType        #115:#117     //  append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #222 = NameAndType        #115:#121     //  append:(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+  #223 = NameAndType        #320:#321     //  valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+  #224 = NameAndType        #115:#194     //  append:(Ljava/lang/String;)Ljava/lang/AbstractStringBuilder;
+  #225 = Utf8               null
+  #226 = NameAndType        #322:#323     //  count:I
+  #227 = NameAndType        #324:#277     //  value:[C
+  #228 = NameAndType        #325:#112     //  expandCapacity:(I)V
+  #229 = NameAndType        #198:#199     //  getChars:(II[CI)V
+  #230 = NameAndType        #115:#193     //  append:(Ljava/lang/StringBuffer;)Ljava/lang/AbstractStringBuilder;
+  #231 = Utf8               java/lang/String
+  #232 = Utf8               java/lang/StringBuffer
+  #233 = NameAndType        #115:#120     //  append:(Ljava/lang/StringBuffer;)Ljava/lang/StringBuilder;
+  #234 = Utf8               java/lang/StringBuilder
+  #235 = NameAndType        #115:#118     //  append:(Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;
+  #236 = NameAndType        #115:#122     //  append:(Ljava/lang/CharSequence;II)Ljava/lang/StringBuilder;
+  #237 = NameAndType        #115:#191     //  append:(Ljava/lang/CharSequence;II)Ljava/lang/AbstractStringBuilder;
+  #238 = NameAndType        #115:#190     //  append:([C)Ljava/lang/AbstractStringBuilder;
+  #239 = NameAndType        #115:#189     //  append:([CII)Ljava/lang/AbstractStringBuilder;
+  #240 = NameAndType        #115:#188     //  append:(Z)Ljava/lang/AbstractStringBuilder;
+  #241 = NameAndType        #115:#187     //  append:(C)Ljava/lang/AbstractStringBuilder;
+  #242 = NameAndType        #115:#183     //  append:(I)Ljava/lang/AbstractStringBuilder;
+  #243 = NameAndType        #115:#186     //  append:(J)Ljava/lang/AbstractStringBuilder;
+  #244 = NameAndType        #115:#185     //  append:(F)Ljava/lang/AbstractStringBuilder;
+  #245 = NameAndType        #115:#184     //  append:(D)Ljava/lang/AbstractStringBuilder;
+  #246 = NameAndType        #131:#183     //  appendCodePoint:(I)Ljava/lang/AbstractStringBuilder;
+  #247 = NameAndType        #132:#168     //  delete:(II)Ljava/lang/AbstractStringBuilder;
+  #248 = NameAndType        #134:#183     //  deleteCharAt:(I)Ljava/lang/AbstractStringBuilder;
+  #249 = NameAndType        #135:#182     //  replace:(IILjava/lang/String;)Ljava/lang/AbstractStringBuilder;
+  #250 = NameAndType        #137:#176     //  insert:(I[CII)Ljava/lang/AbstractStringBuilder;
+  #251 = NameAndType        #137:#140     //  insert:(ILjava/lang/String;)Ljava/lang/StringBuilder;
+  #252 = NameAndType        #137:#174     //  insert:(ILjava/lang/String;)Ljava/lang/AbstractStringBuilder;
+  #253 = NameAndType        #137:#173     //  insert:(I[C)Ljava/lang/AbstractStringBuilder;
+  #254 = NameAndType        #137:#143     //  insert:(ILjava/lang/CharSequence;II)Ljava/lang/StringBuilder;
+  #255 = NameAndType        #137:#171     //  insert:(ILjava/lang/CharSequence;II)Ljava/lang/AbstractStringBuilder;
+  #256 = NameAndType        #137:#170     //  insert:(IZ)Ljava/lang/AbstractStringBuilder;
+  #257 = NameAndType        #137:#169     //  insert:(IC)Ljava/lang/AbstractStringBuilder;
+  #258 = NameAndType        #320:#181     //  valueOf:(I)Ljava/lang/String;
+  #259 = NameAndType        #320:#326     //  valueOf:(J)Ljava/lang/String;
+  #260 = NameAndType        #320:#327     //  valueOf:(F)Ljava/lang/String;
+  #261 = NameAndType        #320:#328     //  valueOf:(D)Ljava/lang/String;
+  #262 = NameAndType        #149:#151     //  indexOf:(Ljava/lang/String;I)I
+  #263 = NameAndType        #329:#330     //  toCharArray:()[C
+  #264 = NameAndType        #149:#331     //  indexOf:([CII[CIII)I
+  #265 = NameAndType        #152:#151     //  lastIndexOf:(Ljava/lang/String;I)I
+  #266 = NameAndType        #152:#331     //  lastIndexOf:([CII[CIII)I
+  #267 = NameAndType        #153:#164     //  reverse:()Ljava/lang/AbstractStringBuilder;
+  #268 = NameAndType        #108:#332     //  "<init>":([CII)V
+  #269 = Class              #333          //  java/io/ObjectOutputStream
+  #270 = NameAndType        #334:#109     //  defaultWriteObject:()V
+  #271 = NameAndType        #335:#112     //  writeInt:(I)V
+  #272 = NameAndType        #157:#336     //  writeObject:(Ljava/lang/Object;)V
+  #273 = Class              #337          //  java/io/ObjectInputStream
+  #274 = NameAndType        #338:#109     //  defaultReadObject:()V
+  #275 = NameAndType        #339:#212     //  readInt:()I
+  #276 = NameAndType        #161:#340     //  readObject:()Ljava/lang/Object;
+  #277 = Utf8               [C
+  #278 = NameAndType        #153:#154     //  reverse:()Ljava/lang/StringBuilder;
+  #279 = NameAndType        #137:#148     //  insert:(ID)Ljava/lang/StringBuilder;
+  #280 = NameAndType        #137:#147     //  insert:(IF)Ljava/lang/StringBuilder;
+  #281 = NameAndType        #137:#146     //  insert:(IJ)Ljava/lang/StringBuilder;
+  #282 = NameAndType        #137:#133     //  insert:(II)Ljava/lang/StringBuilder;
+  #283 = NameAndType        #137:#145     //  insert:(IC)Ljava/lang/StringBuilder;
+  #284 = NameAndType        #137:#144     //  insert:(IZ)Ljava/lang/StringBuilder;
+  #285 = NameAndType        #137:#142     //  insert:(ILjava/lang/CharSequence;)Ljava/lang/StringBuilder;
+  #286 = NameAndType        #137:#141     //  insert:(I[C)Ljava/lang/StringBuilder;
+  #287 = NameAndType        #137:#139     //  insert:(ILjava/lang/Object;)Ljava/lang/StringBuilder;
+  #288 = NameAndType        #137:#138     //  insert:(I[CII)Ljava/lang/StringBuilder;
+  #289 = NameAndType        #177:#178     //  substring:(II)Ljava/lang/String;
+  #290 = NameAndType        #179:#180     //  subSequence:(II)Ljava/lang/CharSequence;
+  #291 = NameAndType        #177:#181     //  substring:(I)Ljava/lang/String;
+  #292 = NameAndType        #135:#136     //  replace:(IILjava/lang/String;)Ljava/lang/StringBuilder;
+  #293 = NameAndType        #134:#127     //  deleteCharAt:(I)Ljava/lang/StringBuilder;
+  #294 = NameAndType        #131:#127     //  appendCodePoint:(I)Ljava/lang/StringBuilder;
+  #295 = NameAndType        #132:#133     //  delete:(II)Ljava/lang/StringBuilder;
+  #296 = NameAndType        #115:#130     //  append:(D)Ljava/lang/StringBuilder;
+  #297 = NameAndType        #115:#129     //  append:(F)Ljava/lang/StringBuilder;
+  #298 = NameAndType        #115:#128     //  append:(J)Ljava/lang/StringBuilder;
+  #299 = NameAndType        #115:#127     //  append:(I)Ljava/lang/StringBuilder;
+  #300 = NameAndType        #115:#126     //  append:(C)Ljava/lang/StringBuilder;
+  #301 = NameAndType        #115:#125     //  append:(Z)Ljava/lang/StringBuilder;
+  #302 = NameAndType        #115:#124     //  append:([CII)Ljava/lang/StringBuilder;
+  #303 = NameAndType        #115:#123     //  append:([C)Ljava/lang/StringBuilder;
+  #304 = NameAndType        #115:#116     //  append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+  #305 = NameAndType        #196:#197     //  setCharAt:(IC)V
+  #306 = NameAndType        #200:#201     //  offsetByCodePoints:(II)I
+  #307 = NameAndType        #202:#201     //  codePointCount:(II)I
+  #308 = NameAndType        #203:#204     //  codePointBefore:(I)I
+  #309 = NameAndType        #205:#204     //  codePointAt:(I)I
+  #310 = NameAndType        #206:#207     //  charAt:(I)C
+  #311 = NameAndType        #208:#112     //  setLength:(I)V
+  #312 = NameAndType        #209:#109     //  trimToSize:()V
+  #313 = NameAndType        #210:#112     //  ensureCapacity:(I)V
+  #314 = NameAndType        #211:#212     //  capacity:()I
+  #315 = Utf8               java/lang/AbstractStringBuilder
+  #316 = Utf8               java/io/Serializable
+  #317 = Utf8               java/lang/CharSequence
+  #318 = Utf8               java/io/IOException
+  #319 = Utf8               java/lang/ClassNotFoundException
+  #320 = Utf8               valueOf
+  #321 = Utf8               (Ljava/lang/Object;)Ljava/lang/String;
+  #322 = Utf8               count
+  #323 = Utf8               I
+  #324 = Utf8               value
+  #325 = Utf8               expandCapacity
+  #326 = Utf8               (J)Ljava/lang/String;
+  #327 = Utf8               (F)Ljava/lang/String;
+  #328 = Utf8               (D)Ljava/lang/String;
+  #329 = Utf8               toCharArray
+  #330 = Utf8               ()[C
+  #331 = Utf8               ([CII[CIII)I
+  #332 = Utf8               ([CII)V
+  #333 = Utf8               java/io/ObjectOutputStream
+  #334 = Utf8               defaultWriteObject
+  #335 = Utf8               writeInt
+  #336 = Utf8               (Ljava/lang/Object;)V
+  #337 = Utf8               java/io/ObjectInputStream
+  #338 = Utf8               defaultReadObject
+  #339 = Utf8               readInt
+  #340 = Utf8               ()Ljava/lang/Object;
+{
+  static final long serialVersionUID;
+    flags: ACC_STATIC, ACC_FINAL
+    ConstantValue: long 4383685877147921099l
+
+  public java.lang.StringBuilder();
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0       
+         1: bipush        16
+         3: invokespecial #1                  // Method java/lang/AbstractStringBuilder."<init>":(I)V
+         6: return        
+      LineNumberTable:
+        line 85: 0
+        line 86: 6
+
+  public java.lang.StringBuilder(int);
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: iload_1       
+         2: invokespecial #1                  // Method java/lang/AbstractStringBuilder."<init>":(I)V
+         5: return        
+      LineNumberTable:
+        line 97: 0
+        line 98: 5
+
+  public java.lang.StringBuilder(java.lang.String);
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=2, args_size=2
+         0: aload_0       
+         1: aload_1       
+         2: invokevirtual #2                  // Method java/lang/String.length:()I
+         5: bipush        16
+         7: iadd          
+         8: invokespecial #1                  // Method java/lang/AbstractStringBuilder."<init>":(I)V
+        11: aload_0       
+        12: aload_1       
+        13: invokevirtual #3                  // Method append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        16: pop           
+        17: return        
+      LineNumberTable:
+        line 109: 0
+        line 110: 11
+        line 111: 17
+
+  public java.lang.StringBuilder(java.lang.CharSequence);
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=2, args_size=2
+         0: aload_0       
+         1: aload_1       
+         2: invokeinterface #4,  1            // InterfaceMethod java/lang/CharSequence.length:()I
+         7: bipush        16
+         9: iadd          
+        10: invokespecial #5                  // Method "<init>":(I)V
+        13: aload_0       
+        14: aload_1       
+        15: invokevirtual #6                  // Method append:(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+        18: pop           
+        19: return        
+      LineNumberTable:
+        line 123: 0
+        line 124: 13
+        line 125: 19
+
+  public java.lang.StringBuilder append(java.lang.Object);
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: aload_1       
+         2: invokestatic  #7                  // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+         5: invokevirtual #3                  // Method append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+         8: areturn       
+      LineNumberTable:
+        line 128: 0
+
+  public java.lang.StringBuilder append(java.lang.String);
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: aload_1       
+         2: invokespecial #8                  // Method java/lang/AbstractStringBuilder.append:(Ljava/lang/String;)Ljava/lang/AbstractStringBuilder;
+         5: pop           
+         6: aload_0       
+         7: areturn       
+      LineNumberTable:
+        line 132: 0
+        line 133: 6
+
+  public java.lang.StringBuilder append(java.lang.StringBuffer);
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: aload_1       
+         2: invokespecial #15                 // Method java/lang/AbstractStringBuilder.append:(Ljava/lang/StringBuffer;)Ljava/lang/AbstractStringBuilder;
+         5: pop           
+         6: aload_0       
+         7: areturn       
+      LineNumberTable:
+        line 169: 0
+        line 170: 6
+
+  public java.lang.StringBuilder append(java.lang.CharSequence);
+    flags: ACC_PUBLIC
+    Code:
+      stack=4, locals=2, args_size=2
+         0: aload_1       
+         1: ifnonnull     7
+         4: ldc           #9                  // String null
+         6: astore_1      
+         7: aload_1       
+         8: instanceof    #16                 // class java/lang/String
+        11: ifeq          23
+        14: aload_0       
+        15: aload_1       
+        16: checkcast     #16                 // class java/lang/String
+        19: invokevirtual #3                  // Method append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        22: areturn       
+        23: aload_1       
+        24: instanceof    #17                 // class java/lang/StringBuffer
+        27: ifeq          39
+        30: aload_0       
+        31: aload_1       
+        32: checkcast     #17                 // class java/lang/StringBuffer
+        35: invokevirtual #18                 // Method append:(Ljava/lang/StringBuffer;)Ljava/lang/StringBuilder;
+        38: areturn       
+        39: aload_1       
+        40: instanceof    #19                 // class java/lang/StringBuilder
+        43: ifeq          55
+        46: aload_0       
+        47: aload_1       
+        48: checkcast     #19                 // class java/lang/StringBuilder
+        51: invokespecial #20                 // Method append:(Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;
+        54: areturn       
+        55: aload_0       
+        56: aload_1       
+        57: iconst_0      
+        58: aload_1       
+        59: invokeinterface #4,  1            // InterfaceMethod java/lang/CharSequence.length:()I
+        64: invokevirtual #21                 // Method append:(Ljava/lang/CharSequence;II)Ljava/lang/StringBuilder;
+        67: areturn       
+      LineNumberTable:
+        line 176: 0
+        line 177: 4
+        line 178: 7
+        line 179: 14
+        line 180: 23
+        line 181: 30
+        line 182: 39
+        line 183: 46
+        line 184: 55
+      StackMapTable: number_of_entries = 4
+           frame_type = 7 /* same */
+           frame_type = 15 /* same */
+           frame_type = 15 /* same */
+           frame_type = 15 /* same */
+
+
+  public java.lang.StringBuilder append(java.lang.CharSequence, int, int);
+    flags: ACC_PUBLIC
+    Code:
+      stack=4, locals=4, args_size=4
+         0: aload_0       
+         1: aload_1       
+         2: iload_2       
+         3: iload_3       
+         4: invokespecial #22                 // Method java/lang/AbstractStringBuilder.append:(Ljava/lang/CharSequence;II)Ljava/lang/AbstractStringBuilder;
+         7: pop           
+         8: aload_0       
+         9: areturn       
+      LineNumberTable:
+        line 191: 0
+        line 192: 8
+
+  public java.lang.StringBuilder append(char[]);
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: aload_1       
+         2: invokespecial #23                 // Method java/lang/AbstractStringBuilder.append:([C)Ljava/lang/AbstractStringBuilder;
+         5: pop           
+         6: aload_0       
+         7: areturn       
+      LineNumberTable:
+        line 196: 0
+        line 197: 6
+
+  public java.lang.StringBuilder append(char[], int, int);
+    flags: ACC_PUBLIC
+    Code:
+      stack=4, locals=4, args_size=4
+         0: aload_0       
+         1: aload_1       
+         2: iload_2       
+         3: iload_3       
+         4: invokespecial #24                 // Method java/lang/AbstractStringBuilder.append:([CII)Ljava/lang/AbstractStringBuilder;
+         7: pop           
+         8: aload_0       
+         9: areturn       
+      LineNumberTable:
+        line 204: 0
+        line 205: 8
+
+  public java.lang.StringBuilder append(boolean);
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: iload_1       
+         2: invokespecial #25                 // Method java/lang/AbstractStringBuilder.append:(Z)Ljava/lang/AbstractStringBuilder;
+         5: pop           
+         6: aload_0       
+         7: areturn       
+      LineNumberTable:
+        line 209: 0
+        line 210: 6
+
+  public java.lang.StringBuilder append(char);
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: iload_1       
+         2: invokespecial #26                 // Method java/lang/AbstractStringBuilder.append:(C)Ljava/lang/AbstractStringBuilder;
+         5: pop           
+         6: aload_0       
+         7: areturn       
+      LineNumberTable:
+        line 214: 0
+        line 215: 6
+
+  public java.lang.StringBuilder append(int);
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: iload_1       
+         2: invokespecial #27                 // Method java/lang/AbstractStringBuilder.append:(I)Ljava/lang/AbstractStringBuilder;
+         5: pop           
+         6: aload_0       
+         7: areturn       
+      LineNumberTable:
+        line 219: 0
+        line 220: 6
+
+  public java.lang.StringBuilder append(long);
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=3, args_size=2
+         0: aload_0       
+         1: lload_1       
+         2: invokespecial #28                 // Method java/lang/AbstractStringBuilder.append:(J)Ljava/lang/AbstractStringBuilder;
+         5: pop           
+         6: aload_0       
+         7: areturn       
+      LineNumberTable:
+        line 224: 0
+        line 225: 6
+
+  public java.lang.StringBuilder append(float);
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: fload_1       
+         2: invokespecial #29                 // Method java/lang/AbstractStringBuilder.append:(F)Ljava/lang/AbstractStringBuilder;
+         5: pop           
+         6: aload_0       
+         7: areturn       
+      LineNumberTable:
+        line 229: 0
+        line 230: 6
+
+  public java.lang.StringBuilder append(double);
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=3, args_size=2
+         0: aload_0       
+         1: dload_1       
+         2: invokespecial #30                 // Method java/lang/AbstractStringBuilder.append:(D)Ljava/lang/AbstractStringBuilder;
+         5: pop           
+         6: aload_0       
+         7: areturn       
+      LineNumberTable:
+        line 234: 0
+        line 235: 6
+
+  public java.lang.StringBuilder appendCodePoint(int);
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: iload_1       
+         2: invokespecial #31                 // Method java/lang/AbstractStringBuilder.appendCodePoint:(I)Ljava/lang/AbstractStringBuilder;
+         5: pop           
+         6: aload_0       
+         7: areturn       
+      LineNumberTable:
+        line 242: 0
+        line 243: 6
+
+  public java.lang.StringBuilder delete(int, int);
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: iload_2       
+         3: invokespecial #32                 // Method java/lang/AbstractStringBuilder.delete:(II)Ljava/lang/AbstractStringBuilder;
+         6: pop           
+         7: aload_0       
+         8: areturn       
+      LineNumberTable:
+        line 250: 0
+        line 251: 7
+
+  public java.lang.StringBuilder deleteCharAt(int);
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: iload_1       
+         2: invokespecial #33                 // Method java/lang/AbstractStringBuilder.deleteCharAt:(I)Ljava/lang/AbstractStringBuilder;
+         5: pop           
+         6: aload_0       
+         7: areturn       
+      LineNumberTable:
+        line 258: 0
+        line 259: 6
+
+  public java.lang.StringBuilder replace(int, int, java.lang.String);
+    flags: ACC_PUBLIC
+    Code:
+      stack=4, locals=4, args_size=4
+         0: aload_0       
+         1: iload_1       
+         2: iload_2       
+         3: aload_3       
+         4: invokespecial #34                 // Method java/lang/AbstractStringBuilder.replace:(IILjava/lang/String;)Ljava/lang/AbstractStringBuilder;
+         7: pop           
+         8: aload_0       
+         9: areturn       
+      LineNumberTable:
+        line 266: 0
+        line 267: 8
+
+  public java.lang.StringBuilder insert(int, char[], int, int);
+    flags: ACC_PUBLIC
+    Code:
+      stack=5, locals=5, args_size=5
+         0: aload_0       
+         1: iload_1       
+         2: aload_2       
+         3: iload_3       
+         4: iload         4
+         6: invokespecial #35                 // Method java/lang/AbstractStringBuilder.insert:(I[CII)Ljava/lang/AbstractStringBuilder;
+         9: pop           
+        10: aload_0       
+        11: areturn       
+      LineNumberTable:
+        line 276: 0
+        line 277: 10
+
+  public java.lang.StringBuilder insert(int, java.lang.Object);
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: aload_2       
+         3: invokestatic  #7                  // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+         6: invokevirtual #36                 // Method insert:(ILjava/lang/String;)Ljava/lang/StringBuilder;
+         9: areturn       
+      LineNumberTable:
+        line 284: 0
+
+  public java.lang.StringBuilder insert(int, java.lang.String);
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: aload_2       
+         3: invokespecial #37                 // Method java/lang/AbstractStringBuilder.insert:(ILjava/lang/String;)Ljava/lang/AbstractStringBuilder;
+         6: pop           
+         7: aload_0       
+         8: areturn       
+      LineNumberTable:
+        line 291: 0
+        line 292: 7
+
+  public java.lang.StringBuilder insert(int, char[]);
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: aload_2       
+         3: invokespecial #38                 // Method java/lang/AbstractStringBuilder.insert:(I[C)Ljava/lang/AbstractStringBuilder;
+         6: pop           
+         7: aload_0       
+         8: areturn       
+      LineNumberTable:
+        line 299: 0
+        line 300: 7
+
+  public java.lang.StringBuilder insert(int, java.lang.CharSequence);
+    flags: ACC_PUBLIC
+    Code:
+      stack=5, locals=3, args_size=3
+         0: aload_2       
+         1: ifnonnull     7
+         4: ldc           #9                  // String null
+         6: astore_2      
+         7: aload_2       
+         8: instanceof    #16                 // class java/lang/String
+        11: ifeq          24
+        14: aload_0       
+        15: iload_1       
+        16: aload_2       
+        17: checkcast     #16                 // class java/lang/String
+        20: invokevirtual #36                 // Method insert:(ILjava/lang/String;)Ljava/lang/StringBuilder;
+        23: areturn       
+        24: aload_0       
+        25: iload_1       
+        26: aload_2       
+        27: iconst_0      
+        28: aload_2       
+        29: invokeinterface #4,  1            // InterfaceMethod java/lang/CharSequence.length:()I
+        34: invokevirtual #39                 // Method insert:(ILjava/lang/CharSequence;II)Ljava/lang/StringBuilder;
+        37: areturn       
+      LineNumberTable:
+        line 307: 0
+        line 308: 4
+        line 309: 7
+        line 310: 14
+        line 311: 24
+      StackMapTable: number_of_entries = 2
+           frame_type = 7 /* same */
+           frame_type = 16 /* same */
+
+
+  public java.lang.StringBuilder insert(int, java.lang.CharSequence, int, int);
+    flags: ACC_PUBLIC
+    Code:
+      stack=5, locals=5, args_size=5
+         0: aload_0       
+         1: iload_1       
+         2: aload_2       
+         3: iload_3       
+         4: iload         4
+         6: invokespecial #40                 // Method java/lang/AbstractStringBuilder.insert:(ILjava/lang/CharSequence;II)Ljava/lang/AbstractStringBuilder;
+         9: pop           
+        10: aload_0       
+        11: areturn       
+      LineNumberTable:
+        line 320: 0
+        line 321: 10
+
+  public java.lang.StringBuilder insert(int, boolean);
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: iload_2       
+         3: invokespecial #41                 // Method java/lang/AbstractStringBuilder.insert:(IZ)Ljava/lang/AbstractStringBuilder;
+         6: pop           
+         7: aload_0       
+         8: areturn       
+      LineNumberTable:
+        line 328: 0
+        line 329: 7
+
+  public java.lang.StringBuilder insert(int, char);
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: iload_2       
+         3: invokespecial #42                 // Method java/lang/AbstractStringBuilder.insert:(IC)Ljava/lang/AbstractStringBuilder;
+         6: pop           
+         7: aload_0       
+         8: areturn       
+      LineNumberTable:
+        line 336: 0
+        line 337: 7
+
+  public java.lang.StringBuilder insert(int, int);
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: iload_2       
+         3: invokestatic  #43                 // Method java/lang/String.valueOf:(I)Ljava/lang/String;
+         6: invokevirtual #36                 // Method insert:(ILjava/lang/String;)Ljava/lang/StringBuilder;
+         9: areturn       
+      LineNumberTable:
+        line 344: 0
+
+  public java.lang.StringBuilder insert(int, long);
+    flags: ACC_PUBLIC
+    Code:
+      stack=4, locals=4, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: lload_2       
+         3: invokestatic  #44                 // Method java/lang/String.valueOf:(J)Ljava/lang/String;
+         6: invokevirtual #36                 // Method insert:(ILjava/lang/String;)Ljava/lang/StringBuilder;
+         9: areturn       
+      LineNumberTable:
+        line 351: 0
+
+  public java.lang.StringBuilder insert(int, float);
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: fload_2       
+         3: invokestatic  #45                 // Method java/lang/String.valueOf:(F)Ljava/lang/String;
+         6: invokevirtual #36                 // Method insert:(ILjava/lang/String;)Ljava/lang/StringBuilder;
+         9: areturn       
+      LineNumberTable:
+        line 358: 0
+
+  public java.lang.StringBuilder insert(int, double);
+    flags: ACC_PUBLIC
+    Code:
+      stack=4, locals=4, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: dload_2       
+         3: invokestatic  #46                 // Method java/lang/String.valueOf:(D)Ljava/lang/String;
+         6: invokevirtual #36                 // Method insert:(ILjava/lang/String;)Ljava/lang/StringBuilder;
+         9: areturn       
+      LineNumberTable:
+        line 365: 0
+
+  public int indexOf(java.lang.String);
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=2, args_size=2
+         0: aload_0       
+         1: aload_1       
+         2: iconst_0      
+         3: invokevirtual #47                 // Method indexOf:(Ljava/lang/String;I)I
+         6: ireturn       
+      LineNumberTable:
+        line 372: 0
+
+  public int indexOf(java.lang.String, int);
+    flags: ACC_PUBLIC
+    Code:
+      stack=7, locals=3, args_size=3
+         0: aload_0       
+         1: getfield      #12                 // Field value:[C
+         4: iconst_0      
+         5: aload_0       
+         6: getfield      #11                 // Field count:I
+         9: aload_1       
+        10: invokevirtual #48                 // Method java/lang/String.toCharArray:()[C
+        13: iconst_0      
+        14: aload_1       
+        15: invokevirtual #2                  // Method java/lang/String.length:()I
+        18: iload_2       
+        19: invokestatic  #49                 // Method java/lang/String.indexOf:([CII[CIII)I
+        22: ireturn       
+      LineNumberTable:
+        line 379: 0
+
+  public int lastIndexOf(java.lang.String);
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=2, args_size=2
+         0: aload_0       
+         1: aload_1       
+         2: aload_0       
+         3: getfield      #11                 // Field count:I
+         6: invokevirtual #50                 // Method lastIndexOf:(Ljava/lang/String;I)I
+         9: ireturn       
+      LineNumberTable:
+        line 387: 0
+
+  public int lastIndexOf(java.lang.String, int);
+    flags: ACC_PUBLIC
+    Code:
+      stack=7, locals=3, args_size=3
+         0: aload_0       
+         1: getfield      #12                 // Field value:[C
+         4: iconst_0      
+         5: aload_0       
+         6: getfield      #11                 // Field count:I
+         9: aload_1       
+        10: invokevirtual #48                 // Method java/lang/String.toCharArray:()[C
+        13: iconst_0      
+        14: aload_1       
+        15: invokevirtual #2                  // Method java/lang/String.length:()I
+        18: iload_2       
+        19: invokestatic  #51                 // Method java/lang/String.lastIndexOf:([CII[CIII)I
+        22: ireturn       
+      LineNumberTable:
+        line 394: 0
+
+  public java.lang.StringBuilder reverse();
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0       
+         1: invokespecial #52                 // Method java/lang/AbstractStringBuilder.reverse:()Ljava/lang/AbstractStringBuilder;
+         4: pop           
+         5: aload_0       
+         6: areturn       
+      LineNumberTable:
+        line 399: 0
+        line 400: 5
+
+  public java.lang.String toString();
+    flags: ACC_PUBLIC
+    Code:
+      stack=5, locals=1, args_size=1
+         0: new           #16                 // class java/lang/String
+         3: dup           
+         4: aload_0       
+         5: getfield      #12                 // Field value:[C
+         8: iconst_0      
+         9: aload_0       
+        10: getfield      #11                 // Field count:I
+        13: invokespecial #53                 // Method java/lang/String."<init>":([CII)V
+        16: areturn       
+      LineNumberTable:
+        line 405: 0
+
+  public java.lang.AbstractStringBuilder reverse();
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0       
+         1: invokevirtual #61                 // Method reverse:()Ljava/lang/StringBuilder;
+         4: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder insert(int, double);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=4, locals=4, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: dload_2       
+         3: invokevirtual #62                 // Method insert:(ID)Ljava/lang/StringBuilder;
+         6: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder insert(int, float);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: fload_2       
+         3: invokevirtual #63                 // Method insert:(IF)Ljava/lang/StringBuilder;
+         6: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder insert(int, long);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=4, locals=4, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: lload_2       
+         3: invokevirtual #64                 // Method insert:(IJ)Ljava/lang/StringBuilder;
+         6: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder insert(int, int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: iload_2       
+         3: invokevirtual #65                 // Method insert:(II)Ljava/lang/StringBuilder;
+         6: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder insert(int, char);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: iload_2       
+         3: invokevirtual #66                 // Method insert:(IC)Ljava/lang/StringBuilder;
+         6: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder insert(int, boolean);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: iload_2       
+         3: invokevirtual #67                 // Method insert:(IZ)Ljava/lang/StringBuilder;
+         6: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder insert(int, java.lang.CharSequence, int, int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=5, locals=5, args_size=5
+         0: aload_0       
+         1: iload_1       
+         2: aload_2       
+         3: iload_3       
+         4: iload         4
+         6: invokevirtual #39                 // Method insert:(ILjava/lang/CharSequence;II)Ljava/lang/StringBuilder;
+         9: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder insert(int, java.lang.CharSequence);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: aload_2       
+         3: invokevirtual #68                 // Method insert:(ILjava/lang/CharSequence;)Ljava/lang/StringBuilder;
+         6: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder insert(int, char[]);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: aload_2       
+         3: invokevirtual #69                 // Method insert:(I[C)Ljava/lang/StringBuilder;
+         6: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder insert(int, java.lang.String);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: aload_2       
+         3: invokevirtual #36                 // Method insert:(ILjava/lang/String;)Ljava/lang/StringBuilder;
+         6: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder insert(int, java.lang.Object);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: aload_2       
+         3: invokevirtual #70                 // Method insert:(ILjava/lang/Object;)Ljava/lang/StringBuilder;
+         6: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder insert(int, char[], int, int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=5, locals=5, args_size=5
+         0: aload_0       
+         1: iload_1       
+         2: aload_2       
+         3: iload_3       
+         4: iload         4
+         6: invokevirtual #71                 // Method insert:(I[CII)Ljava/lang/StringBuilder;
+         9: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.String substring(int, int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: iload_2       
+         3: invokespecial #72                 // Method java/lang/AbstractStringBuilder.substring:(II)Ljava/lang/String;
+         6: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.CharSequence subSequence(int, int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: iload_2       
+         3: invokespecial #73                 // Method java/lang/AbstractStringBuilder.subSequence:(II)Ljava/lang/CharSequence;
+         6: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.String substring(int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: iload_1       
+         2: invokespecial #74                 // Method java/lang/AbstractStringBuilder.substring:(I)Ljava/lang/String;
+         5: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder replace(int, int, java.lang.String);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=4, locals=4, args_size=4
+         0: aload_0       
+         1: iload_1       
+         2: iload_2       
+         3: aload_3       
+         4: invokevirtual #75                 // Method replace:(IILjava/lang/String;)Ljava/lang/StringBuilder;
+         7: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder deleteCharAt(int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: iload_1       
+         2: invokevirtual #76                 // Method deleteCharAt:(I)Ljava/lang/StringBuilder;
+         5: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder appendCodePoint(int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: iload_1       
+         2: invokevirtual #77                 // Method appendCodePoint:(I)Ljava/lang/StringBuilder;
+         5: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder delete(int, int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: iload_2       
+         3: invokevirtual #78                 // Method delete:(II)Ljava/lang/StringBuilder;
+         6: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder append(double);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=3, locals=3, args_size=2
+         0: aload_0       
+         1: dload_1       
+         2: invokevirtual #79                 // Method append:(D)Ljava/lang/StringBuilder;
+         5: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder append(float);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: fload_1       
+         2: invokevirtual #80                 // Method append:(F)Ljava/lang/StringBuilder;
+         5: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder append(long);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=3, locals=3, args_size=2
+         0: aload_0       
+         1: lload_1       
+         2: invokevirtual #81                 // Method append:(J)Ljava/lang/StringBuilder;
+         5: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder append(int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: iload_1       
+         2: invokevirtual #82                 // Method append:(I)Ljava/lang/StringBuilder;
+         5: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder append(char);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: iload_1       
+         2: invokevirtual #83                 // Method append:(C)Ljava/lang/StringBuilder;
+         5: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder append(boolean);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: iload_1       
+         2: invokevirtual #84                 // Method append:(Z)Ljava/lang/StringBuilder;
+         5: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder append(char[], int, int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=4, locals=4, args_size=4
+         0: aload_0       
+         1: aload_1       
+         2: iload_2       
+         3: iload_3       
+         4: invokevirtual #85                 // Method append:([CII)Ljava/lang/StringBuilder;
+         7: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder append(char[]);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: aload_1       
+         2: invokevirtual #86                 // Method append:([C)Ljava/lang/StringBuilder;
+         5: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder append(java.lang.CharSequence, int, int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=4, locals=4, args_size=4
+         0: aload_0       
+         1: aload_1       
+         2: iload_2       
+         3: iload_3       
+         4: invokevirtual #21                 // Method append:(Ljava/lang/CharSequence;II)Ljava/lang/StringBuilder;
+         7: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder append(java.lang.CharSequence);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: aload_1       
+         2: invokevirtual #6                  // Method append:(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+         5: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder append(java.lang.StringBuffer);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: aload_1       
+         2: invokevirtual #18                 // Method append:(Ljava/lang/StringBuffer;)Ljava/lang/StringBuilder;
+         5: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder append(java.lang.String);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: aload_1       
+         2: invokevirtual #3                  // Method append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+         5: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.AbstractStringBuilder append(java.lang.Object);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: aload_1       
+         2: invokevirtual #87                 // Method append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+         5: areturn       
+      LineNumberTable:
+        line 72: 0
+
+  public void setCharAt(int, char);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: iload_2       
+         3: invokespecial #88                 // Method java/lang/AbstractStringBuilder.setCharAt:(IC)V
+         6: return        
+      LineNumberTable:
+        line 72: 0
+
+  public void getChars(int, int, char[], int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=5, locals=5, args_size=5
+         0: aload_0       
+         1: iload_1       
+         2: iload_2       
+         3: aload_3       
+         4: iload         4
+         6: invokespecial #89                 // Method java/lang/AbstractStringBuilder.getChars:(II[CI)V
+         9: return        
+      LineNumberTable:
+        line 72: 0
+
+  public int offsetByCodePoints(int, int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: iload_2       
+         3: invokespecial #90                 // Method java/lang/AbstractStringBuilder.offsetByCodePoints:(II)I
+         6: ireturn       
+      LineNumberTable:
+        line 72: 0
+
+  public int codePointCount(int, int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0       
+         1: iload_1       
+         2: iload_2       
+         3: invokespecial #91                 // Method java/lang/AbstractStringBuilder.codePointCount:(II)I
+         6: ireturn       
+      LineNumberTable:
+        line 72: 0
+
+  public int codePointBefore(int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: iload_1       
+         2: invokespecial #92                 // Method java/lang/AbstractStringBuilder.codePointBefore:(I)I
+         5: ireturn       
+      LineNumberTable:
+        line 72: 0
+
+  public int codePointAt(int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: iload_1       
+         2: invokespecial #93                 // Method java/lang/AbstractStringBuilder.codePointAt:(I)I
+         5: ireturn       
+      LineNumberTable:
+        line 72: 0
+
+  public char charAt(int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: iload_1       
+         2: invokespecial #94                 // Method java/lang/AbstractStringBuilder.charAt:(I)C
+         5: ireturn       
+      LineNumberTable:
+        line 72: 0
+
+  public void setLength(int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: iload_1       
+         2: invokespecial #95                 // Method java/lang/AbstractStringBuilder.setLength:(I)V
+         5: return        
+      LineNumberTable:
+        line 72: 0
+
+  public void trimToSize();
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0       
+         1: invokespecial #96                 // Method java/lang/AbstractStringBuilder.trimToSize:()V
+         4: return        
+      LineNumberTable:
+        line 72: 0
+
+  public void ensureCapacity(int);
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: iload_1       
+         2: invokespecial #97                 // Method java/lang/AbstractStringBuilder.ensureCapacity:(I)V
+         5: return        
+      LineNumberTable:
+        line 72: 0
+
+  public int capacity();
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0       
+         1: invokespecial #98                 // Method java/lang/AbstractStringBuilder.capacity:()I
+         4: ireturn       
+      LineNumberTable:
+        line 72: 0
+
+  public int length();
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0       
+         1: invokespecial #99                 // Method java/lang/AbstractStringBuilder.length:()I
+         4: ireturn       
+      LineNumberTable:
+        line 72: 0
+
+  public java.lang.Appendable append(char) throws java.io.IOException;
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: iload_1       
+         2: invokevirtual #83                 // Method append:(C)Ljava/lang/StringBuilder;
+         5: areturn       
+      LineNumberTable:
+        line 72: 0
+    Exceptions:
+      throws java.io.IOException
+
+  public java.lang.Appendable append(java.lang.CharSequence, int, int) throws java.io.IOException;
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=4, locals=4, args_size=4
+         0: aload_0       
+         1: aload_1       
+         2: iload_2       
+         3: iload_3       
+         4: invokevirtual #21                 // Method append:(Ljava/lang/CharSequence;II)Ljava/lang/StringBuilder;
+         7: areturn       
+      LineNumberTable:
+        line 72: 0
+    Exceptions:
+      throws java.io.IOException
+
+  public java.lang.Appendable append(java.lang.CharSequence) throws java.io.IOException;
+    flags: ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0       
+         1: aload_1       
+         2: invokevirtual #6                  // Method append:(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+         5: areturn       
+      LineNumberTable:
+        line 72: 0
+    Exceptions:
+      throws java.io.IOException
+}

@@ -1,0 +1,64 @@
+Questions:
+
+Read papers :
+6 (background SAX represnetation):
+14, 20 ( adapting indexing)- relational data.
+35, 36 ( discuss buffers - to delays access )
+
+
+What is meant by data series indexing ?
+
+Data model - relational model - : several entries :
+
+value of stock - : frequency
+
+- indexing more than one column at a time : Clustered index ?
+
+-  scan vs index : - and present the case that this is across multiple data series - we are talking about secondary vs clustered index ? - ( cache lines )
+
+- what does it mean to impose a global ordering on relation data - why is it not possible for a column store.
+  --> cracking : column - array with just integers
+
+Questions:
+ Can you explain the below example of indexable SAX
+In the case of a binary alphabet, with a word size of 3 characters and a maximum cardinality of 2 bits, we could have a set of data series (two in the following example) represented with the following words: 002102012, 002112012, where each character has a full cardinality of 2 bits and each word corresponds to one data series. If we now reduce the cardinality of the second character in each word, we could represent both of them with a single iSAX representation: 00211012. That is because 11 corresponds to both 10 and 11, since the last bit is trailed when the cardinality is reduced. By starting with a cardinality of 1 for each character in the root node and by gradually performing splits by increasing the cardinality by one character at a time, one can build a tree index [29, 30]. Such cardinality reductions can be efficiently calculated with bit mask operations.
+
+
+- we talk about how we only read file once - but every time we materialize the index - we have open the file - go the position/offset and read - there is some I/O - ?
+
+grouping data together : disk pages.
+
+
+
+
+PADS+
+6.  To optimize reading from disk for each query
+a.  Initialize leaf size is set to infinite – thus split can be performed on large leaf BUFFERS
+b.  In practice – 16 PAA segments ~ 2 ^16 FBL buffers
+c.  For a 1B data series – each 2^16 buffers can have = 1B/2^15 = 15258.78 = 15K – iSAX
+d.  If we use 1 byte for each character, 16 segments (0 to 15)  --- 16 bytes for each data series
+e.  Results in a FBL = 235 KB – trivial for splits.
+
+
+
+
+
+ which are suited for data series
+indexing, where we index more than one columns at a time (since
+each data series can be considered an array) via reduced resolutions.
+One could also consider storing a data series as a row in a
+column-store, i.e., each point being a separate attribute and then
+use adaptive indexing. However, then we lose the locality property
+as accessing one data series would require accessing several
+
+
+
+ In addition, contrary to indexing relational data
+where a global ordering can be imposed, i.e., incrementally creating
+a range index, in our case a global ordering is not possible and
+we are answering nearest neighbor queries
+
+
+
+
+

@@ -1,0 +1,1 @@
+curl -i -H accept:application/json -H content-type:application/json -XPOST --user neo4j:cscie63 http://localhost:7474/db/data/transaction/commit -d '{"statements":[{"statement":"CREATE (matrix1:Movie {title : \"'The Matrix'\" , year : \"'1999-03-31'\" }) RETURN id(matrix1)"}]}'

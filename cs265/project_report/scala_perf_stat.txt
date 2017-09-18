@@ -1,0 +1,29 @@
+Scala :
+
+creating Tree with a FANOUT of = 65
+time taken to build Tree with total nodes = 500 is 198ms
+Calling rangeSearch for geq = 220000000 and le = 330000000
+Returning total 8 in time 16.100133895874023 microsecond
+Calling rangeSearch for geq = 440000000 and le = 550000000
+Returning total 10 in time 16.500017166137695 microsecond
+Calling rangeSearch for geq = 440000000 and le = 600000000
+Returning total 17 in time 12.800010681152344 microsecond
+Calling rangeSearch for geq = 220000000 and le = 440000000
+Returning total 24 in time 7.70002555847168 microsecond
+Calling rangeSearch for geq = 220000000 and le = 600000000
+Returning total 41 in time 12.300020217895508 microsecond
+Calling rangeSearch for geq = -220000000 and le = 600000000
+Returning total 77 in time 4.600028991699219 microsecond
+Calling rangeSearch for geq = -900000000 and le = 900000000
+Returning total 208 in time 5.100034713745117 microsecond
+shutting down server
+Could not listen on port: 9999.
+
+ Performance counter stats for './server.sh SimpleServer modex /home/NOVUS/rsha/my_proj2/compare/3bb89806/project_tests/ 3':
+
+    10,829,259,624 cycles                    #    0.000 GHz
+     8,213,773,801 instructions              #    0.76  insns per cycle
+       128,438,627 cache-misses
+        28,585,481 branch-misses
+
+     319.577693787 seconds time elapsed

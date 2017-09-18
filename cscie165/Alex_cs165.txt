@@ -1,0 +1,262 @@
+- You joined the Main Room. ( 5:19 PM ) -
+- Your chat permission has been enabled. ( 5:19 PM ) -
+rsha
+5:20 PM
+hey Alex
+is it a good time to ask a couple of questions
+5:20 PM
+I tried on piazza,but the answers led to more questions
+5:20 PM
+should not be more than 10 mins
+5:21 PM
+Alex
+5:21 PM
+Hi Rsha, now is a great time to ask!
+I'm happy to help you
+5:21 PM
+rsha
+5:21 PM
+do you prefer IM or should speak ?
+i am happy either ways - whatever works best for you
+5:22 PM
+let me know
+5:22 PM
+Alex
+5:24 PM
+Either works fine with me, whichever you think will get the question across better!
+rsha
+5:24 PM
+i think i prefer to talk in that case
+can you hear me ?
+5:25 PM
+Alex
+5:25 PM
+try again
+yeah I can
+5:25 PM
+okay, the load functionality
+5:25 PM
+Yeah, so if you want to load files larger than memory then you can choose to have some MAX buffer size
+5:26 PM
+for example, when you read on the client side
+5:27 PM
+you can set that you only read buffers at most 64MB at a time
+5:27 PM
+(this is much smaller than the max memory size on a machine)
+5:27 PM
+Essentially what youc an do is pass 64MB of data at a time from the client to server
+5:27 PM
+Sort of
+5:27 PM
+so if you are passing 64MB at a time
+5:28 PM
+and you are saving the data sequentially
+5:28 PM
+what you can do is essentially just write the loaded data onto disk immediately
+5:28 PM
+For example, imagine you have 4x 64MB blocks
+5:28 PM
+so your file looks something like this: [64][64][64][64]
+5:28 PM
+You read the first 64MB block on the client side
+5:28 PM
+and send it to the server
+5:28 PM
+the server now has [64]
+5:28 PM
+Oh, I can check with Stratos to see if that is allowed
+5:29 PM
+I think we originally wanted you to load the file on the client side
+5:29 PM
+and send the data over from the client to the server (over the connection)
+5:29 PM
+This shouldn't add much complexity to your operation though
+5:29 PM
+Okay, yes, we can just deal with just reading on the server for now
+5:30 PM
+So let's say you have a very large file (4G
+5:30 PM
+and you are reading chunks of 64MB at a time
+5:30 PM
+and then you can just read from the file 64MB
+5:30 PM
+and then write to the OUTFILE
+5:30 PM
+I see, here is some pseudocode of the operation
+5:31 PM
+okay sure
+5:31 PM
+Okay, yes
+5:31 PM
+that sounds good so far
+5:31 PM
+What do you mean by that?
+5:32 PM
+rsha
+5:32 PM
+int** buffevalues
+10 col, 10 rows
+5:33 PM
+10 arr - 10 other arrays
+5:33 PM
+Alex
+5:33 PM
+Do you mean 10 arrays of 10 arrays
+or 1 array of 10 arrays?
+5:33 PM
+rsha
+5:33 PM
+[0] = col1 - array
+Alex
+5:33 PM
+yes
+rsha
+5:34 PM
+tba - col - data
+memcpy(&new_col_data[current_col_len], &col_data, cpySize);
+5:34 PM
+Alex
+5:35 PM
+Yes, that looks correct
+Okay, do you have a code that you can share online?
+5:35 PM
+http://collabedit.com/trwcg
+5:35 PM
+Sorry, I am "k" on there (I just typed a name)
+5:36 PM
+rsha
+5:36 PM
+no worries
+Alex
+5:36 PM
+Sorry, I would also use my video as well, but my microphone is broken
+Yeah
+5:36 PM
+Yes, I am following
+5:38 PM
+How are you testing for the values?
+5:38 PM
+Are you printf'ing after the copy
+5:38 PM
+Yes
+5:39 PM
+There is a button on the top
+5:39 PM
+that shows 2 screens
+5:39 PM
+(There are 3 buttons on the top of the blackboard, it is the middle one)
+5:39 PM
+When you highlight over it, it says application sharing
+5:39 PM
+yes
+5:39 PM
+okay
+5:39 PM
+i enabled it
+5:39 PM
+yes
+5:40 PM
+I think there is a small bug in your code at this line:
+5:40 PM
+memcpy(&new_col_data[current_col_len], &col_data, cpySize);
+5:40 PM
+col_data is already an address
+5:40 PM
+the address to the int*
+5:40 PM
+if you do &col_data
+5:40 PM
+it gives you the address of the address of the array
+5:40 PM
+If you do just col_data
+5:40 PM
+it will give you the address to the start of the array
+5:40 PM
+Yes!
+5:40 PM
+I can see your code
+5:41 PM
+Great!
+5:41 PM
+This implementation looks correct for loading data
+5:41 PM
+but it won't allow you to load data larger than memory
+5:42 PM
+Because you have each of the table->col[i] still loaded in memory
+5:42 PM
+I think loading larger files is something you can handle later
+5:42 PM
+Sure, of course!
+5:42 PM
+I am happy to help
+5:42 PM
+No problem
+5:42 PM
+Yes
+5:43 PM
+Cool, yes this looks okay for now
+5:43 PM
+Well, your code looks correct alraedy for loading
+5:44 PM
+And your code may work correctly for bulk loading
+5:44 PM
+the bulk loading is different from handling data larger than memory
+5:44 PM
+bulk data is like loading multiple rows at a time (possibly smaller/larger than memory)
+5:45 PM
+However, this won't handle laoding data larger than memory because in your load implementation
+5:45 PM
+you are holding the entirety of the columns in memory
+5:45 PM
+Yes, your load looks perfect for now!
+5:45 PM
+I agree with you
+5:45 PM
+loading data larger than memory is an optimization
+5:46 PM
+that you can take a look into later
+5:46 PM
+It looks correct for now
+5:46 PM
+Sure of course
+5:46 PM
+I think your code is abstracted well enough that supporting large data files later will be easy
+5:47 PM
+you will not have to change any code in this file
+5:47 PM
+but in the original file you shared with me
+5:47 PM
+(the one with the actual load implementation)
+5:47 PM
+If you need help, when you get to that point I am happy to point you in the right direction
+5:47 PM
+But as you said earlier, it might be helpful to move onto the other parts
+5:48 PM
+and work on the optimizations later
+5:48 PM
+(we are not requiring larger than memory files as of milestone 1 or 2)
+5:48 PM
+Sure!
+5:48 PM
+Yes
+5:48 PM
+I am here on Mondays 5-7
+5:48 PM
+and you can email me as well
+5:48 PM
+if you need help outside of those times
+5:48 PM
+zezhouliu@college.harvard.edu and/or cs165-staff@seas.harvard.edu
+5:49 PM
+no problem, good luck!
+5:49 PM
+
+5:49 PM
+rsha
+5:49 PM
+Thanks so much once again !
+you suppoted the issue so quickly
+5:49 PM
+Alex
+5:50 PM
+Of course, any time!

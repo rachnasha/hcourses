@@ -1,0 +1,23 @@
+1. Does vertex based implementation hold in the context of Single machine systems
+2. how matrix is organized in main memory ?, Does vertex
+3. Zoom in on single machine systems - understand how data is laid out in main memory
+   - Matrix Based
+    - (D.1) Single machine systems
+            (1) GraphTwist
+            (2) GridGraph
+
+    - (E) Temporal Graph Systems
+         (E.1) Real time Streaming Graph
+              (1) Kineograph : Key/Value
+              (2) TIDE
+
+         (E.2) Historical Graph Systems
+               (1) Chronos
+               (2) Delta Graph
+               (3) LLAMM
+
+
+
+  - what queries
+  - how data organized - what data structures - what operations and how they are performed.
+  - trade off

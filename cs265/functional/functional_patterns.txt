@@ -1,0 +1,128 @@
+Some background on OO and Object design patterns
+
+
+
+
+GOFs design patterns - 3 broad classification - Structural , Creational, behavioural
+
+Functional style -- has none of these - everything in functional world is replaced by a function. For example
+
+(1) Singleton pattern is implemented as a Object with a apply.
+(2) Command pattern (do, undo a command) - is Function apply, unapply
+
+pretty much everything is modelled as a function.
+
+So this brings us to the Core pricipals :
+
+Functions,
+Types (Types are not classes)
+Composition
+
+
+Functions:
+
+   -- First class values
+   -- they are just like any other data type
+   -- not attached to any class
+   -- functions are things that transform things.
+   -- exmaples of functions - defined just like variables.
+     -- val x = 5
+     -- val f = (x:Int, y:Int) => (x+y)
+
+   -- HOFs - functions that take functions as input and/or return functions
+          -- map, fold, examples of higher order
+          -- add some more examples
+
+Composition:
+
+  -- mathematics law of composition - f: a->b, g : b -> c then there exists h = a -> c
+  -- Exercise for readers - Prove that function composition is assocaitive (fog)oh = fo(goh)
+      -- Hint : Just show that LHS == RHS by applying functions.
+
+  -- way to build bigger functions from smaller functions :
+     -- functions all the way down.
+ -- give an example from scala - from code base:
+
+
+
+Types:
+  -- Not classes
+  -- more like sets
+  -- type is label given to set of inputs / outputs of a function
+  -- type encapsulates
+   -- types usually have no behaviour
+       -- List --> Data
+       -- functions on List define the behaviour - transform list
+        -- List is just data - not behaviour - -
+   -- types can be composed  -- (algebraic types)
+     --- start with primitive  and create new ones by glueing them together
+      - Two ways :(a) by multiplyig them - product type -- person * date = types birthday
+                  (b) by adding them - union/sum type  --
+trait Base {
+  type T
+
+  def method: T
+}
+
+class Implementation extends Base {
+  type T = Int
+
+  def method: T = 42
+}
+
+  total functions : most helpful
+   -- Totality : Total function : for all A ( Domain) there exist B ( codomain)
+
+      -- divide by 0
+      -- constrain the type --> nonZeroInteger (OR)
+      -- return an Option
+
+
+   -- Use static types : make it compile time check.
+
+
+
+
+Functions as Parameters
+   -- Decouple behaviour from data
+
+  Functions as interfaces:
+     - AN INTERFACe of one thing is just a function
+
+  Partial functions
+  Continuation --
+
+
+Maps
+  - Dealing with wrapped data
+  - Functors -- mapable type
+
+What next :
+
+Functors,
+
+Applicative,
+
+Monads,
+
+  - nullable valies --> Options
+  - is a Functor
+
+   -- chaining continuations -- Bind is an adapater block
+    -- monadic bind
+   -- Futures - onComplete , onFailure
+   -- Validation -- Success/Failure -- Disjunctive
+
+
+Monoids : Closure, Associativity, Identity
+  - Aggragate data and operations
+   -- start a bunch of things -
+     -- combine two things get the same thing
+     -- associative
+     -- identity
+  -- Also work with Functions : Functions that have same inputs and out types are called Endomorphism ( Monoids)
+
+
+
+
+

@@ -1,0 +1,135 @@
+Big Graph Systems:
+
+General-Purpose Graph Analytics
+
+Programming Language
+    Java, C/C++, Scala, Python …
+    Domain-Specific Language (DSL)
+
+Programming Models:
+
+- Think Like a vertex - vertex centric - Message passing + shared memory abstraction
+- Think Like a Graph
+- Datalog
+
+
+A) Message Passing Systems:
+
+(1) Google Pregel : Message Passing syste, Vertex centric - Think like a vertex
+- PPA, BPPA
+(2) Apache Giraph : Similar /open source implementation of Pregel
+      - JVM based
+(3) GraphLab
+
+(A.1) Optimization of communication mechanism
+     (1) Pregel+ -- vertex mirroring vs message combining
+(A.2) Load Balancing
+
+(A.3)Out of core support ( JVM out of heap space)
+    (1) Pregelix:
+         - Transparent Out of core support ( i.e JVM heap out of memory)
+         - Physical Flexibility
+         - Software simplicity
+    (2) GraphD
+           - Stores and processes message on local disk
+
+(A.4)Fault Tolerance  :
+     (1) Coordinated Checkpointing of Pregel
+         For every n number of supersteps:
+         (a) Standby Machine
+         (b) Repartioning about survivors
+     (2) UnCoordinated Checkpointing
+        (a) Chandy-Lamport Snapshot
+     (3) Recovering by messaging logging
+
+(A.5) Block centric computation model
+      (1) Blogel
+      http://www.cse.cuhk.edu.hk/blogel/
+    https://blog.acolyer.org/2015/06/04/blogel-a-block-centric-framework-for-distributed-computation-on-real-world-graphs/
+    https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwi2jLv8w7XUAhVEOz4KHbtEA4AQFggoMAA&url=http%3A%2F%2Fwww.vldb.org%2Fpvldb%2Fvol7%2Fp1981-yan.pdf&usg=AFQjCNHRhYYy-yl7nM1DAs5TscVeVyaSJw&sig2=wS_2gU5LyatfnfdVG562OQ
+
+     (2) Giraph++ - Pioneering : Shift from Think like a vertex to Think like a Graph
+
+ (A.6) Asynchronous Computation Model
+     (1) Maiter
+
+  (A.7) Vertex centric query processing
+       (1) Quegel
+            - On demand processing of light workload graph queries
+            - only a portion of whole graph processed
+
+
+(B) Shared Memory Abstractions
+    (1) GraphLab ( PowerGraph) -> Dato
+
+  (B.1) Distributed GraphLab
+           - Aysnc excution
+   (B.2)PowerGraph
+           - Gather, Apply , Scatter
+           - Edge Partitioning
+           - Goals:
+               - Loading balancing
+               - Minimize vertex replicas
+               - Cost of value sync
+               - Cost of memory space
+
+(C) Single machine systems
+
+    (C.1) shared mem Out of core systems
+          (1) Graphchi
+              - Disk Shard
+          (2) X-Stream
+               - Edge Scope GAS
+               - Stream a completely unordered list of edges
+
+          (3)VENUS
+              - shard  + stream
+
+     (C.2) Matrix Based
+     (C.3) SSD based
+            - Async Random I/O
+            -  Pipelined for hugh throughput
+            (1) TurboGraph
+            (2) FlashGraph
+
+     (C.4) In memory multi core
+            - In memory parallel frameworks
+             (1) Green-marl
+             (2) ligra
+             (3) GRACE
+            - Full utilization of all cores on machine
+            (1) GRACE
+            (2) Galois
+     (C.5) GPU based
+            - array of streaming multiprocessors (SMs)
+            - single instruction, multiple threads (SIMT)
+            (1) Medusa
+
+(D) Matrix based abstractions - ( TODO: how organized in main memory ?, Does vertex)
+        - PageRank
+        - HashMin
+       (D.1) Single machine systems
+            (1) GraphTwist
+            (2) GridGraph
+
+        (D.2) Distributed Frameworks
+             (1) PEGASUS - open source
+             (2) GBase
+             (3) SystemML
+
+(E) Temporal Graph Systems
+     (E.1) Real time Streaming Graph
+          (1) Kineograph : Key/Value
+          (2) TIDE
+
+     (E.2) Historical Graph Systems
+           (1) Chronos
+           (2) Delta Graph
+           (3) LLAMM - ( Harvard)
+
+(F) DBMS Based Systems
+(G) Subgraph Based Systems
+      (1) NScale
+      (2) Arabesque
+      (3)
+

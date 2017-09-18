@@ -1,0 +1,31 @@
+C:
+
+novusnyclk61 {cs265 *} ~/my_proj2/rachnashas-cs165-2015-base/src $ perf stat -e cycles,instructions,cache-misses,branch-misses ./server
+result of intit db : 1
+Table thread recieved signal of database created
+clusterd is :0
+In load db to load file ../project_tests/data2.csv, database: db1
+Total lines :500
+Starting INdexing
+Time taken to Index in microseconds:         135.000000000
+Time taken to load file : data2.csv , time : 0.000000000
+searching bTree on colName :col4
+Time taken in BTree search length: 8, time in microseconds:          22.000000000
+Time taken in BTree search length: 10, time in microseconds:          23.000000000
+Time taken in BTree search length: 17, time in microseconds:          25.000000000
+Time taken in BTree search length: 24, time in microseconds:          25.000000000
+Time taken in BTree search length: 41, time in microseconds:          29.000000000
+Time taken in BTree search length: 77, time in microseconds:          32.000000000
+Time taken in BTree search length: 208, time in microseconds:          41.000000000
+DataType :0 and numTup :208
+Starting shutdown ........
+Finished shutdown .....
+
+ Performance counter stats for './server':
+
+        14,469,875 cycles                    #    0.000 GHz
+         8,124,790 instructions              #    0.56  insns per cycle
+            35,144 cache-misses
+            96,144 branch-misses
+
+      39.575469258 seconds time elapsed

@@ -1,0 +1,56 @@
+novusnyclk61 (cs265) ~/my_proj2/rachnashas-cs165-2015-base/src $ perf stat -e cycles,instructions,cache-misses,branch-misses ./server
+result of intit db : 1
+Table thread recieved signal of database created
+In load db to load file ../project_tests/data1000x.csv, database: db1
+Total lines :1696
+Starting INdexing
+Time taken to Index in microseconds:           3.000000000
+Time taken to load file : data1000x.csv , time : 0.059999999
+clusterd is :0
+Size of alloc 827288
+Size of total 827304
+==== size of Btree :827304 bytes
+Starting shutdown ........
+sync_db :db1
+Finished shutdown .....
+
+ Performance counter stats for './server':
+
+       220,553,691 cycles                    #    0.000 GHz
+       383,019,660 instructions              #    1.74  insns per cycle
+           144,086 cache-misses
+           781,295 branch-misses
+
+      26.300750509 seconds time elapsed
+
+
+novusnyclk61 (cs265) ~/my_proj2/rachnashas-cs165-2015-base/src $ perf stat -e cycles,instructions,cache-misses,branch-misses ./server
+result of intit db : 1
+Table thread recieved signal of database created
+In load db to load file ../project_tests/data1000x.csv, database: db1
+Total lines :1696
+Starting INdexing
+Time taken to Index in microseconds:           4.000000000
+Time taken to load file : data1000x.csv , time : 0.059999999
+clusterd is :0
+Size of alloc 827288
+Size of total 827304
+==== size of Btree :827304 bytes
+Time taken in BTree search length: 10, time in microseconds:          21.000000000 - 0.0001
+Time taken in BTree search length: 66, time in microseconds:          32.000000000 - 0.00066
+Time taken in BTree search length: 101, time in microseconds:          30.000000000 - 0.00101
+Time taken in BTree search length: 738, time in microseconds:          93.000000000 - 0.00738
+Time taken in BTree search length: 2707, time in microseconds:         243.000000000 - 0.02707
+Time taken in BTree search length: 6680, time in microseconds:         539.000000000 - 0.0668
+Starting shutdown ........
+sync_db :db1
+Finished shutdown .....
+
+ Performance counter stats for './server':
+
+       230,619,596 cycles                    #    0.000 GHz
+       388,095,216 instructions              #    1.68  insns per cycle
+           177,988 cache-misses
+           850,302 branch-misses
+
+     135.221836297 seconds time elapsed

@@ -1,0 +1,5 @@
+Prove using induction that the maximum possible number of edges in a
+DAG with n vertices is n(n − 1)/2.
+
+
+"Base case: A DAG with 1 node can have at most 0 edges: (1(1-1))/2 = 0, which holds. Assume this holds for a DAG of n vertices; consider a DAG with n+1 vertices. You build a graph of n+1 vertices by adding one node to a graph of N vertices. In order to preserve the acyclic nature of the graph, the maximum number of edges we can add with this new node is one connecting to each of the other n vertices. So the DAG with n vertices has at most (n(n-1))/2 vertices by the inductive hypothesis, and then we add at most n vertices, which gives us (n^2-n)/2 + 2n/2 = (n^2+n)/2 = ((n+1)(n+1-1))/2, and the proposition holds" (Deborah Abel).

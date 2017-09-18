@@ -1,0 +1,104 @@
+Spanner: Google’s Globally-Distributed Database
+
+Problem:
+
+Spanner - is google's scalable, multi-version, synchronously replicated, globally distribured database
+
+- It is the first system to distribute data at global scale and support externally consistent distributed transactions.
+
+- describes the strcture of Spanner,
+- feature sets
+-  rational underlying the design decisions
+- novel api that exposes clock uncertainity
+   -- This api and its implementation are critical to
+    ---- supporting external consistency
+    ---- non blocking reads
+    ---- lock free read-only transactions
+    ---- atomic schema changes.
+
+
+main idea:
+
+- At the highest level - its is a database that is sharded across global data centers
+- replication used for global availablity and geographical locality
+- automatic failover between replicas
+- automcatically reshards data as the number of servers/ amount of data  changes
+- automatically  migrates data across machines to load balance in response to failures.
+- designed to scale upto millions of rows across hundreds to datacenters and trillions of database rows.
+- Spanner main focus is managing cross datacenters - replicated data : distributed system infrastructure
+
+
+what is it ?
+
+- Spanner has evolved from a Bigtable like key-value store into a temporal multi version database.
+- Data is stored in schematized semi-relational tables
+- Data is versioned - and each version is automatically timestamped with its commit time
+- Old versions are Gc'ed based on the policies
+- Support general purpose transactions and provides a SQL-based query language
+
+- replication configuration is dynamically controlled.
+
+- 2 critical features that are difficult to implement in a distributed database:
+ ----- provides externally consistent reads and writes
+ ----- globally consistent reads across the database at a timestamp.
+- these 2 features helps to support consistent backups , Atomic schema update - all at a global scale - even in presence of ongoing transaction.
+
+
+
+Solution in detail:
+
+1. Consists of Spanservers - responsible for 100 to 1000 instances of tablet
+2. A tablet - maintains a bag of mappings: (key:String, timestamp:int64) -> String
+3. Maintains a timestamp - that is used for creating the temporal nature of the db.
+4. state maintained in B-tree like structures + WAL : all on Colossus
+5.replication is supported by maintaining Paxos state machine on top of the tablet.
+6.writes are applied by Paxo in order.
+7.Paxo state machine is used to implement a consistently replicated bag of mappings.
+8. KV state of each replica is stored in its corresponding tablet.
+
+
+Bucketing/Directory :
+
+1. On top of KV mappings - an abstraction called "bucketing" is implemented
+2. Directory is a unit of data placement
+3. When data is moved between Paxos - it is moved by directory - can be moved to load balance, put freqently used directory in same group
+4. Movedir is the background task used to move directory between paxo groups.
+5. Move dir registers that it is starting to move the data and moves the data in the background.
+
+Data Model:
+
+- drievn by schematized semu-relational tables
+- query language
+- general pupose transaction
+- application data model sits on top of the directory-bucketed key value mappings supported by the implementation
+ --- an application creates one or more databases - that have one or more tables
+ --- data model is not purely relational , in that the rows must have names
+ --- every table needs to have an ordered set of one or more primary key.
+ --- PK is the name for the row, and each table defines a mapping from PK to Non-PK columns
+
+ TrueTime API
+ - Is the most critical component - which provides stronger time semantics
+ - This is the basis of Spanner distributed algorithm
+ - Designed to provide with bounded time uncertainity
+ - Underlying time references used by TrueTime are GPS and atomic clocks
+ - It uses two forms as they have different failure modes.
+ - implemented by a set of timemaster machines per data center and time slave machines per machine
+
+
+Use of Spanner in FI ( Google's Renvenue critical database)
+
+- FI was built with MySql - with manual sharing
+- knowledge of sharing in application business logic
+- Any resharing exercise was impractical to do on a regular basis as it was too expensive
+- Spanner was choosen as
+    - it could automatically shard
+    - replication and automatic failure
+    - the need for strong transactional semantics which means - it could not use NOSql db.
+
+- the timestamp semantics helped to keep a in memory data structure based of the database state.
+
+Next steps:
+
+Automate maintenance of
+-secondary indicies
+-resharing based of load

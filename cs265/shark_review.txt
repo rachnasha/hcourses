@@ -1,0 +1,104 @@
+what is the problem:
+1. Shark is a data analysis system that supports SQL query and machine learning functions.
+2. Brings together query processing with complex analytics on large clusters.
+3. Provides a unified engine that runs sql queries and sophisticated analytics functions
+   at scale.
+4. Efficient recovery from mid-query failures.
+5. It provides these speedups while maintaining a MapReduce like execution engine and fine-grained fault tolerance.
+
+why is it hard:
+
+1. Data volumnes are expanding dramtically creating the need to scale out across cluster of
+machines.
+2. This increase in scale out increases the incidence of faults and slow tasks.
+3. Increase in complexity of data analytics.
+
+why existing solutions do not work:
+
+Two major lines of systems have been explored
+(1) Composed of MapReduce and generalizations - offer a fine grained fault tolerance suitable for large clusters - as it allows failed task to be deterministically reexecuted. But MapReduce systems lack the features that make databases efficient and have high latency, and hence these systems cannot be used for interactive workloads.
+
+(2) MPP - Massivley Parallel Processing - databases employ a coarser grained recovery - where the entire query needs to be reexecuted if a machine fails. This works well for short queries where retry is inexpensive but this does not apply to large queries.Most organization use  other systems along size MPP databases.
+
+
+what is the core intuition for the solution:
+
+1. Perform computing In-memory while offering fine-grained fault tolerance.
+2. In-memory computing is increasingly important for the following reasons
+    (a) Many complex analytical functions are iterative - which require going over data
+        multiple times and the fatest systems for these are in-memory.
+    (b) Even traditional SQL warehouse workloads exhibit strong temporal and spatial locality
+3. Traditional main-memory systems support fine-grained updates by replicating writes across the network which is expensive. Shark achieves fine-grained fault tolerance through abstraction called RDD - Resilient  Distributed Datasets, which recovers from failures by tracking the lineage of each dataset and recomputing lost data.
+
+
+Architecture:
+
+1. Shark cluster consists a master node and a number of slave nodes
+2. Warehouse metadata is stored in external traditional database.
+3. It is build on top of Spark, a MapReduce cluster computing engine.
+4. when query is submitted shark compiles the query into operator tree represented as RDDs.
+5. These RDDs are translated by Spark into a graph of tasks to execute on the slave nodes.
+
+Solution step by step
+
+1. Shark uses Spark - which is a MapReduce cluster computing engine.
+2. Spark has the following features
+    (a) Supports DAGs and not just traditional two-stage MapReduce
+    (b) Provides a in-memory abstraction called RDDs that lets application keep data in
+        memory across queries and automatically reconstruct it after failure.
+    (c) Optimized for low latency
+3. RDDs -
+   (a) are immutable , partitioned collections that can be created through various data parallel operations.
+   (b) Each RDD is either a collection stored in an external storage system like HDFS, or a
+      derived dataset created by applying operators to other RDDs
+   (c) RDD operators are invoked using functional API - liek scala, python or java.
+   (d) can contain arbitary data types and can be automatically partitioned.
+   (e) The immutablity and operation used to create these RDDs - enable highly efficient fault recovery - Spark remembers the lineage ( graph used to create them) of the RDDs  - and recovers from failure by recomputing them from base data.
+
+4. Executing SQL over RDDs -
+    (a) Uses a 3 step process to run query
+        (i)  query parsing
+        (ii) generate query plan
+        (iii) execute the query plan
+
+    (b) Uses Hive query compiler - that parses the query to create a AST
+    (c) Query then turned into logical plan and predicates are pushed down.
+    (d) Shark's optimizer applies additional rule-based optimizations - and created a plan consisting of transformation on RDDs.
+    (e) Multiple operators - such as map, reduce, broadcast joins - are employed for these transformations.
+    (f) Spark's master then executes this graph using standard MapReduce scheduling techniques , and by placing task close to the input data, rerunning lost tasks.
+
+5. Engine Extensions - PDE
+   (1) Query optimization techniques rely on a priori statistics maintained by indicies.
+   (2) Such statistics are unavailable for fresh data -  that has not gone through ETL .
+   (3) We need to support Dyanmic Query Optimization - for such fresh dataset.
+   (4) Shark supports Partial DAG execution (PDE) - a technique that allows dynamic alterations of query plan based on statistics collected at runtime.
+   (5) PDE - gathers customizable statistics at global and per-partition granularity , and allows DAG to be altered based on these statistics.
+
+6. Join Optimization -
+    1. Partial DAGs can also be used to perform runtime optimizations for join queries.
+    2. Two types of Joins
+      a. Shuffle Joins
+         (i) Both join tables are hash-partitioned by join key
+        (ii) Reducer job joins corresponding partitions using a local join algorithm
+             based on runtime statistics.
+        (iii) If one of the reducer's input partition is small, then it will contruct a hashtable over smaller partition and probe it using large partition
+        (iv) If both are large then symmetric hash join is performed by constructing hash table on both inputs.
+      b. Map Joins
+        (i) Also known as broadcast join
+        (ii)Small input is broadcast to all nodes, where it is joined with each partition
+
+7. Skew-Handling and Parallelism.
+
+   1. Partial DAG can also be used to determine degree of paralleism and mitigate skew.
+   2. Degree of parallelism - impacts performance
+      (i) Launching too few reducers may overload reducers netwrok connections and exhaust their memories
+      (ii) Launching too many may prolong the task due to task scheduling overhead.
+   3. Using PDE's shark can use individual partitions to determine the number of reducers at runtime - by coalescing many small fine-grained partition into fewer coarse grained partitions that can be used for reduce tasks.
+   4. To mitigate skew - coalescing is done using - greedy bin packing hueristic.
+
+8. Columnar Memory Store
+   1. In-memory computation is essential to low latency query answering
+   2. Shark implements a columnar memory store on top of Spark's memory store.
+   3. Spark's default memory store - is to store data partitions as collections of JVM objects. This avoids deserializartion, but leads to significant storeage space overhead, and impact Garbage Collection.
+   4. Shark stores all columns of primitive types as JVM primitive arrays, complex types such as Map and Array - are serialized into a single byte array.
+   5. Each column creates only one JVM object- leading to fast GC and compact representation.

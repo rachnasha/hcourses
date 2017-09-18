@@ -1,0 +1,137 @@
+Module 6: In class problems
+
+3. a - b = a xor b
+
+b and (a xor b)
+
+1-0 = 1  c= 0
+0-1 = 1  c= 1 
+1-1 = 0  c = 0 
+0-0 = 0  c= 0 
+
+
+c = A and B
+
+
+
+b and ( axor b)
+
+
+a - b = a xor b
+
+b and (a xor b)
+
+1-0 = 1  c= 0
+0-1 = 1  c= 1 
+1-1 = 0  c = 0 
+0-0 = 0  c= 0 
+
+
+c = A and B
+
+
+
+b and ( axor b)
+
+
+2. A light bulb is connected to three light switches so that:
+
+• When any one switch is in the on position (and the other two are in
+the off position), the light bulb is lit.
+• When any switch is flipped from on to off or vice versa, the light bulb
+goes out if it was lit or lights up if it was off.
+Construct a circuit that could connect the three switches to the bulb in this
+way.
+
+
+
+A  B     C    R
+T   F     F    T
+F   T     F    T 
+F    F    T    T
+T   T   T      T
+T   T    F     F
+F   T   T      F
+T   F   T      F
+F   F    F      F
+
+
+(A xor B) xor c 
+
+A xor ( B xor C)
+
+
+3. Construct the following gates:
+(a) Using only NOT and OR gates construct an AND gate.
+(b) Using only AND, NOT, and OR gates construct an NXOR gate. What
+if you can only use NOT and OR gates?
+
+
+A and B = Not (NOT A OR NOT B)
+XOR
+
+         XOR  NXOR
+T F  = T       F  == NOT ((F and F ) or (T and T)
+F  T  _ T      F ==  NOT((T and T) or( F and F))   
+F  F  = F      T == NOT(( T and F) or ( F and T))  
+T  T  = F      T
+
+
+
+NOT ((NOT A AND B) OR (A AND NOT B))
+
+
+
+(F and F ) or (T and T) = T = F
+ (t and t) or( F and F)  = T = F
+( T and F) or ( F and T) = F = T
+ (F and T) or (T and F) = F = T
+
+
+
+4. Design a half-subtractor circuit: for inputs a, b (each a single bit), give
+formulas for the difference a − b and the ”borrow bit” c indicating whether
+a bit must be borrowed from the next digit.
+
+
+
+a - b = a xor b
+
+b and (a xor b)
+
+1-0 = 1  c= 0
+0-1 = 1  c= 1 
+1-1 = 0  c = 0 
+0-0 = 0  c= 0 
+
+
+c = A and B
+
+
+
+b and ( axor b)
+
+
+5. Challenge. Construct a two-by-two bit multiplier: Design a circuit which
+takes in as input a1, a2, b1 and b2, and outputs a binary representation of
+their product. How many bits does the output need to be?
+
+
+a2a1 * b2b1
+
+a1 and b1 -> unit digit
+
+a1 and b1
+
+a1 b1 a1 and b1
+1   1        1
+1   0        0
+0   1        0
+
+
+(a1 and b2) xor (a2 and b1) --> 2nd digit
+
+
+((a1 and b2) and (a2 and b1)) xor (b2 and a2) --> 3rd 
+
+((a1 and b2) and (a2 and b1)) and (b2 and a2) --> 4th

@@ -1,0 +1,36 @@
+Trees: 
+
+1. 
+Prove by induction that in a any tree, |V | = | E | + 1.
+
+Base Case(2) : Two nodes share an edge; thereby base case is true.
+
+IH: P(n) is true where n is the number of vertices. To prove P(n+1) is true, we need to show that a graph with n+1 nodes has n edges.
+
+For a given graph with n nodes, we assume P(n) is true per IH. If we add another node (n+1) and connect that node to one of the existing nodes with one more edge, we will have n+1 nodes and n edges.
+
+
+3. Suppose that T is a minimum weight spanning tree
+for G that does not contain the edge e.
+Then Consider the graph T + e.
+This graph must contain a cycle C that contains the edge e.
+Let f be an edge of C different from e, and set T* = T + e − f .
+Then T* is also a spanning tree for G, but
+wt T * ( ) = wt(T + e − f ) = wt(T ) + wt(e) − wt( f ) < wt(T ),
+contrary to T being a minimum weight spanning tree.
+Hence no such tree T (i.e., without e) can exist.
+
+
+4. Can be a pic of words. - need to show T' is more than T
+
+Coloring :
+
+1. Each node represents - the committee and the edges - represent senators that are common to those committes
+
+So we need 5 different weekly meeting times to ensure no conflicts
+
+
+2. Coloring - 3 * 3 * 3 = 27 :-
+ 14 - C1, 
+ 13 - C2
+

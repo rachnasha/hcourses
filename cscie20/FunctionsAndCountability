@@ -1,0 +1,29 @@
+Injective: f(x)=f(y) implies x=y, for all x,y in the domain.
+Surjective: for every z in the codomain, there is an x in the domain such that f(x)=z
+Bijective: both injective and surjective.
+
+
+Define binary relations R0 and R1 on the set of squares of an n × n chessboard:
+R0(x, y) ⇐⇒ a knight can go from x to y in an even number of moves
+R1(x, y) ⇐⇒ a knight can go from x to y in an odd number of moves
+(a) Show Ri(x, y) → Ri(y, x) for i = 0, 1, i.e., Ri
+is symmetric.
+we take a  the path we take to get from x to y , and the same path can be retraced to get back to x. his means it is symmetric 
+
+(b) Show (R0(x, y) ∧ R0(y, z)) → R0(x, z), i.e., R0 is transitive.If the
+ path from x to y is even and the path from y  to z is also ecen then x to z ie even 
+sum of evcen numver is even
+
+(c) Show Ri(x, y) → ¬R1−i(x, y) for i = 0, 1, i.e., R0 and R1 are disjoint.
+Ro(x, y) -> ~R1(x,y) --> even -> ~ R1odd
+odd -> opposite
+even -. same 
+
+(d) Show (R1(x, y) ∧ R1(y, z)) → ¬R1(x, z), i.e., R1 is antitransitive.
+odd+ odd = even
+
+(e) Show that if n = 8, R0(x, y)∨ R1(x, y) holds, but that the same is not
+true if n = 3.in a 3 x 3 = because of the moves that knight makes it cannot move
+
+(1) if it is in center  = cannot move anywhere else
+(2) if it is on any other corener - it cannot get to center.

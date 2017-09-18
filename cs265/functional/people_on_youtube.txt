@@ -1,0 +1,9 @@
+Dan Rosen
+
+John Kodumal
+
+
+Ted Neward : Thinking in Scala
+
+Scala - hybrid of object + functional world
+

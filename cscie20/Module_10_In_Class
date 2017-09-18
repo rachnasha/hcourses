@@ -1,0 +1,54 @@
+The domain of discourse is the set of integers. Let S(x, y, z) mean that “z
+is the sum of x and y.”
+
+(a) Write a formula that means x is an even integer.
+
+for some x there exists w (S(x,y,z1) and S((2*w), y,z2) and z1=z2)
+
+(b) Write a formula that symbolizes the commutative property for addition
+(x + y = y + x) of integers.
+For all x, all y (S(x,y,z) == S(y,x,z)
+
+for all x , all y (S(x, y, z1) and S(y, x, z2) and z1 == z2)
+
+(c) Write a formula that symbolizes the associative law for addition
+(x + (y + z) = (x + y) + z) of integers.
+
+for all x, y, z,( S(x, S(y,z, z1), z3) and  S(S(x,y, z2), z, z4) and z3 ==z4)
+
+
+https://piazza.com/class/i5bb20kngej24t?cid=34
+
+
+
+(From module #9) The domain of discourse is the set of all nite-length
+binary strings as in Meyer, problem 3.21. The predicates Substring(x; y)
+(meaning x is a substring of y) and Prex(x; y) (meaning x is a prex of y)
+are available.
+(a) Write an expression that means x consists of alternating 0s and 1s, e.g
+01010 or 101010. (Hint: Consider substrings of size two.)
+(b) Write an expression that means x is the binary representation of an
+integer of the form 5(2k) for some integer k  0.
+
+
+~(Substring(00, y) or Substring(11,y)) and (prefix(01, y) or prefix(10, y))
+
+
+We define a committee to be a set of senators {S1, S2, · · · , Sn}. The predicate
+M(S, c) means “Senator S is a member of committee c.” Rewrite the
+following in terms of predicate logic.
+(a) Every committee has at least two senators serving on it.
+All(c)  there exists S1, exists S2 (S1 != S2 AND M(S1,c) AND M(S2,c)
+
+(b) Any two distinct senators determine a unique committee.
+ for all c1, for all c2 there exists s1 exists s2 exists s3 exists s4 (c1 != c2 and s1 != s3 and M(s1, c1) and M(s2, c1) and M(s3, c2) and M(s4, c2))
+
+t.d: exists c exists s1, s2 M(s1,c) AND M(s2,c)
+
+(c) We say two committees are “parallel” if they share no senators. Let
+P(c1, c2) mean “Committees c1 and c2 are parallel.” Rewrite the following
+in terms of predicate logic: Given a committee c and a senator
+S not on the committee, there is some committee parallel to c of which
+S is a member.
+
+there Exists P(c, c1) ( ~M(s,c) And M(s, c1) )
