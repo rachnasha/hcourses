@@ -100,8 +100,8 @@
       <file leaf-file-name="CountWordsDF.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/CountWordsDF.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12311901">
-              <caret line="6" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.38987687">
+              <caret line="19" column="44" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -621,8 +621,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/CountWordsDF.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12311901">
-          <caret line="6" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.38987687">
+          <caret line="19" column="44" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
